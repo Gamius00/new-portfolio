@@ -1,0 +1,14 @@
+.content {
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.elements {
+  padding: 20px;
+  font-size: larger;
+  margin: 30px;
+  border-radius: 5px;
+  font-weight: bolder;
+}

@@ -1,0 +1,74 @@
+.contentbox {
+  background-color: rgb(31, 31, 31);
+  margin-top: 140px;
+  border-radius: 15px;
+  height: 410px;
+  padding: 10px;
+  width: 550px;
+  border: 2px solid white;
+}
+
+.contentflexbox {
+  display: flex;
+  justify-content: center;
+}
+
+.contentbox input {
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 20px;
+  border-radius: 5px;
+  color: black;
+}
+
+.Message_Title {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 30px;
+}
+
+.Titles {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
+}
+
+.Inputs {
+  display: flex;
+  justify-content: space-around;
+}
+
+.textarea {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.div_button {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.div_button button {
+  background-color: rgb(153, 153, 153);
+  color: black;
+  padding: 5px;
+  border-radius: 4px;
+  width: 80px;
+  transition: 0.3s;
+}
+
+.div_button button:hover {
+  width: 120px;
+}
+
+@media screen and (max-width: 425px) {
+  .Inputs {
+    display: block;
+  }
+
+  .Titles {
+    display: none;
+  }
+}

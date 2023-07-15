@@ -1,0 +1,74 @@
+.portfoliotext {
+  font-size: 1.4em;
+  color: #cccccc;
+}
+
+.hello {
+  margin-left: 10%;
+  margin-top: 135px;
+  color: #201e20;
+  display: flex;
+  justify-self: space-between;
+}
+
+.fabiustext {
+  margin-bottom: 5px;
+  font-size: 2.4em;
+}
+
+.intern {
+  color: rgb(49, 49, 49);
+  font-size: 1.4em;
+  margin-top: 40px;
+}
+
+.picturecontainer {
+  margin-left: 0%;
+}
+
+.content {
+  width: 80%;
+}
+
+.About div {
+  display: flex;
+  justify-content: center;
+}
+
+.AboutHead {
+  margin-top: 150px;
+}
+
+.AboutContent {
+  margin-top: 30px;
+  color: #383535;
+}
+
+.About h1 {
+  font-size: 1.5em;
+  color: #dbdbdb;
+}
+
+.About div p {
+  width: 48%;
+  font-size: 1.1em;
+}
+
+.About div p span {
+  color: #dbdbdb;
+}
+
+@media screen and (max-width: 900px) {
+  .picturecontainer {
+    display: none;
+  }
+
+  .AboutHead {
+    margin-top: 100px;
+  }
+
+  .About div p {
+    width: 80%;
+    font-size: 1.1em;
+  }
+}
