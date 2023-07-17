@@ -3,9 +3,12 @@
 import React, { useRef } from "react";
 import Navbar from "../Navbar";
 import style from "./contact.module.css";
+import { useForm, SubmitHandler } from "react-hook-form";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 export default function page() {
-  const handleSubmit = (event) => {
+  /*const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
     const email = form.elements.email.value;
@@ -21,13 +24,37 @@ export default function page() {
       },
       body: JSON.stringify(data),
     });
-  };
+  }; */
+
+  const ContactValidator = z.object({
+    email: z.string().email({ message: "Not a valid email" }),
+    name: z.string(),
+    title: z.string(),
+    category: z.string(),
+    message: z
+      .string()
+      .min(10, { message: "Your message must be at least 10 characters long" })
+      .max(2000, {
+        message: "Your message must be less than 2000 characters long",
+      }),
+  });
+
+  type Inputs = z.infer<typeof ContactValidator>;
+
+  const {
+    register,
+    handleSubmit,
+    getValues,
+    formState: { errors },
+  } = useForm<Inputs>({
+    resolver: zodResolver(ContactValidator),
+  });
 
   return (
     <div>
       <div className={style.contentflexbox}>
         <div className={style.contentbox}>
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit((data) => submitHandler(data))}>
             <div className={style.Titles}>
               <label>Email</label>
               <label>Name</label>

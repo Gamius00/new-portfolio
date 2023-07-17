@@ -10,6 +10,7 @@ export default function Navbar() {
 
   useEffect(() => {
     function handleScroll() {
+      const menudiv = document.getElementById("menudiv");
       let windowY = window.scrollY || window.pageYOffset;
       console.log(windowY);
       const views = document.getElementById("views");
@@ -23,12 +24,10 @@ export default function Navbar() {
       }
 
       if (windowY > 0) {
-        const menudiv = document.getElementById("menudiv");
         menudiv.style.backgroundColor = "#5e5e5e";
         menudiv.style.boxShadow =
           "0 0 2px white, 0 0 4px white, 0 0 6px white, 0 0 4px white, 0 0 8px white, 0 0 10px white";
       } else if (windowY === 0) {
-        const menudiv = document.getElementById("menudiv");
         if (imageSrc == "/menu3.png") {
           menudiv.style.backgroundColor = "transparent";
           menudiv.style.boxShadow = "none";
@@ -93,7 +92,7 @@ export default function Navbar() {
             <p>Home</p>
           </div>
         </Link>
-        <Link className={style.navelement} href="/Projects">
+        <Link className={style.navelement} href="/projects">
           <div>
             <Image
               src="/document.png"
@@ -104,7 +103,7 @@ export default function Navbar() {
             <p>Projects</p>
           </div>
         </Link>
-        <Link className={style.navelement} href="/Skillbar">
+        <Link className={style.navelement} href="/skillbar">
           <div>
             <Image
               src="/user.png"
@@ -115,7 +114,7 @@ export default function Navbar() {
             <p>Skillbar</p>
           </div>
         </Link>
-        <Link className={style.navelement} href="/Contact">
+        <Link className={style.navelement} href="/contact">
           <div>
             <Image
               src="/envelope.png"
@@ -153,7 +152,7 @@ export default function Navbar() {
           <a
             id="projectbutton"
             className={style.projectbutton}
-            href="/Projects"
+            href="/projects"
           >
             Projects
           </a>
@@ -164,7 +163,7 @@ export default function Navbar() {
           >
             Skillbar
           </a>
-          <a id="contactbutton" className={style.contactbutton} href="/Contact">
+          <a id="contactbutton" className={style.contactbutton} href="/contact">
             Contact
           </a>
           <a
