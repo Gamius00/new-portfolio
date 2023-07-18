@@ -34,6 +34,7 @@ export default function page() {
       <div className={style.content}>
         <div onClick={click} className={style.passwordgenerator}>
           <Image
+            alt="Password Generator"
             src="/password-generator.jpg"
             width={220}
             height={100}
@@ -54,6 +55,7 @@ export default function page() {
             <form method="dialog">
               <button className={style.closedialog}>
                 <Image
+                  alt="..."
                   id="menu"
                   src="/cross2.png"
                   width={30}
@@ -68,6 +70,7 @@ export default function page() {
 
         <div onClick={click2} className={style.portfolio}>
           <Image
+            alt="Portfolio Fabius"
             src="/portfolio.png"
             width={220}
             height={100}
@@ -89,6 +92,7 @@ export default function page() {
           <form method="dialog">
             <button className={style.closedialog}>
               <Image
+                alt="First Portfolio"
                 id="menu"
                 src="/cross2.png"
                 width={30}
@@ -114,6 +118,7 @@ export default function page() {
         <div onClick={click3} className={style.bot}>
           <Image
             src="/discord-bot.png"
+            alt="Discord Bot"
             width={220}
             height={100}
             className={style.botimage}
@@ -128,6 +133,7 @@ export default function page() {
               <button className={style.closedialog}>
                 <Image
                   id="menu"
+                  alt="..."
                   src="/cross2.png"
                   width={30}
                   height={30}
@@ -144,6 +150,7 @@ export default function page() {
 
         <div className={style.kotlinapp}>
           <Image
+            alt="Kotlin app"
             src="/kotlin-app.png"
             width={220}
             height={100}
