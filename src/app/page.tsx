@@ -34,6 +34,7 @@ export default function Home() {
 
         <div className={style.picturecontainer}>
           <Image
+            alt="..."
             src="/web-development.png"
             width={256}
             height={256}
