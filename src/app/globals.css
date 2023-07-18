@@ -18,5 +18,5 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: url("background7.png");
+  background-color: #000000;
 }

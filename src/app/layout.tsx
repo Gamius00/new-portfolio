@@ -1,6 +1,7 @@
 import "./globals.css";
 import { Raleway } from "next/font/google";
-import Navbar from "./Navbar";
+import Navbar from "../components/navbar";
+import Providers from "./providers";
 
 const inter = Raleway({ subsets: ["latin-ext"], weight: ["500"] });
 
@@ -14,7 +15,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
         <Navbar />
-        <div>{children}</div>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

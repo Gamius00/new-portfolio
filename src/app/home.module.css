@@ -4,9 +4,9 @@
 }
 
 .hello {
-  margin-left: 10%;
-  margin-top: 135px;
-  color: #201e20;
+  margin-left: 20%;
+  margin-top: 205px;
+  color: #ffffff;
   display: flex;
   justify-self: space-between;
 }
@@ -17,13 +17,19 @@
 }
 
 .intern {
-  color: rgb(49, 49, 49);
-  font-size: 1.4em;
   margin-top: 40px;
 }
 
+.internText {
+  font-size: 1.4em;
+  background: linear-gradient(to right, #fb0000, #9d9d9d);
+  background-position: left;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .picturecontainer {
-  margin-left: 0%;
+  margin-right: 25%;
 }
 
 .content {
@@ -36,12 +42,12 @@
 }
 
 .AboutHead {
-  margin-top: 150px;
+  margin-top: 130px;
 }
 
 .AboutContent {
   margin-top: 30px;
-  color: #383535;
+  color: #ffffff;
 }
 
 .About h1 {
@@ -55,7 +61,10 @@
 }
 
 .About div p span {
-  color: #dbdbdb;
+  background: linear-gradient(to right, #fb0000, #cacaca);
+  background-position: left;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 @media screen and (max-width: 900px) {

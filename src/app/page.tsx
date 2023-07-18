@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Navbar from "./Navbar";
 import style from "./home.module.css";
 import { TypeAnimation } from "react-type-animation";
 
@@ -12,7 +11,11 @@ export default function Home() {
         <div className={style.content}>
           <p className={style.fabiustext}>Hello there 👋</p>
           <p className={style.fabiustext}>I'm Fabius </p>
-          <p className={style.intern}>Software Engineering Student for</p>
+          <p className={style.intern}>
+            <span className={style.internText}>
+              Software Engineering Student for
+            </span>
+          </p>
 
           <TypeAnimation
             className={style.portfoliotext}
@@ -31,9 +34,9 @@ export default function Home() {
 
         <div className={style.picturecontainer}>
           <Image
-            src="/programmerpic.png"
-            width={180}
-            height={180}
+            src="/web-development.png"
+            width={256}
+            height={256}
             className={style.picture}
           />
         </div>

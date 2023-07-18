@@ -84,7 +84,7 @@ export default function Navbar() {
         <Link className={style.navelement} href="/">
           <div>
             <Image
-              src="/home.png"
+              src="/home1.png"
               width={30}
               height={7}
               className={style.img}
@@ -95,7 +95,7 @@ export default function Navbar() {
         <Link className={style.navelement} href="/projects">
           <div>
             <Image
-              src="/document.png"
+              src="/edit.png"
               width={30}
               height={7}
               className={style.img}
@@ -106,7 +106,7 @@ export default function Navbar() {
         <Link className={style.navelement} href="/skillbar">
           <div>
             <Image
-              src="/user.png"
+              src="/user1.png"
               width={30}
               height={7}
               className={style.img}
@@ -117,7 +117,7 @@ export default function Navbar() {
         <Link className={style.navelement} href="/contact">
           <div>
             <Image
-              src="/envelope.png"
+              src="/contact1.png"
               width={30}
               height={7}
               className={style.img}
@@ -131,7 +131,7 @@ export default function Navbar() {
         >
           <img
             alt="Hits"
-            src="https://hits.sh/portfolio-fabius.vercel.app.svg?style=for-the-badge&label=Views&extraCount=5&color=858585"
+            src="https://hits.sh/portfolio-fabius.vercel.app.svg?style=for-the-badge&label=Views&extraCount=5&color=ff0000&labelColor=19191F"
           />
         </Link>
       </div>
@@ -159,7 +159,7 @@ export default function Navbar() {
           <a
             id="skillbarbutton"
             className={style.skillbarbutton}
-            href="/Skillbar"
+            href="/skillbar"
           >
             Skillbar
           </a>

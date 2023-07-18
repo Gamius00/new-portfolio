@@ -1,5 +1,5 @@
 .navelement {
-  background-color: #949494;
+  background-color: #19191f;
 }
 
 .navbar a {
@@ -20,11 +20,11 @@
   display: flex;
   border-radius: 4px;
   justify-content: center;
-  color: #000000;
+  color: #ffffff;
   position: fixed;
   width: 100%;
   top: 0;
-  background-color: #818181;
+  background-color: #000000;
   box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.5);
 }
 
@@ -38,7 +38,7 @@
 }
 
 .menudiv a:hover {
-  background-color: #818181;
+  background-color: #222222;
 }
 
 .navelement div {
