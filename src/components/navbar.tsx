@@ -85,6 +85,7 @@ export default function Navbar() {
           <div>
             <Image
               src="/home1.png"
+              alt="..."
               width={30}
               height={7}
               className={style.img}
@@ -95,6 +96,7 @@ export default function Navbar() {
         <Link className={style.navelement} href="/projects">
           <div>
             <Image
+              alt="..."
               src="/edit.png"
               width={30}
               height={7}
@@ -107,6 +109,7 @@ export default function Navbar() {
           <div>
             <Image
               src="/user1.png"
+              alt="..."
               width={30}
               height={7}
               className={style.img}
@@ -118,6 +121,7 @@ export default function Navbar() {
           <div>
             <Image
               src="/contact1.png"
+              alt="..."
               width={30}
               height={7}
               className={style.img}
@@ -138,6 +142,7 @@ export default function Navbar() {
       <div className={style.navcenter}>
         <div id="menudiv" className={style.menudiv}>
           <Image
+            alt="..."
             onClick={handleclick}
             id="menu"
             src={imageSrc}
