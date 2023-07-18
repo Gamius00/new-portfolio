@@ -2,6 +2,7 @@ import "./globals.css";
 import { Raleway } from "next/font/google";
 import Navbar from "../components/navbar";
 import Providers from "./providers";
+import { Analytics } from "@vercel/analytics/react";
 
 const inter = Raleway({ subsets: ["latin-ext"], weight: ["500"] });
 
@@ -17,6 +18,7 @@ export default function RootLayout({ children }) {
       <body className={inter.className}>
         <Navbar />
         <Providers>{children}</Providers>
+        <Analytics />
       </body>
     </html>
   );

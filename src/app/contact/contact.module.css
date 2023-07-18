@@ -25,12 +25,14 @@
   display: flex;
   justify-content: space-around;
   margin-top: 30px;
+  color: aliceblue;
 }
 
 .Titles {
   display: flex;
   justify-content: space-around;
   margin-top: 10px;
+  color: aliceblue;
 }
 
 .Inputs {

@@ -30,6 +30,7 @@ const ContactValidator = z.object({
 type Inputs = z.infer<typeof ContactValidator>;
 
 export const POST = async (req: NextRequest) => {
+  console.log(req);
   try {
     const body: Inputs = await req.json();
     const { email, name, title, category, message } = body;

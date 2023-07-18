@@ -25,6 +25,8 @@ export default function contact() {
       .max(2000, {
         message: "Your message must be less than 2000 characters long",
       }),
+    // This is a honeypot to prevent spam
+    testMessage: z.string().max(0),
   });
 
   type Inputs = z.infer<typeof ContactValidator>;
@@ -116,6 +118,11 @@ export default function contact() {
               />
               {errors.message && <p>{errors.message.message}</p>}
             </div>
+            {/* This is a honeypot to prevent spam */}
+            <input
+              style={{ display: "none" }}
+              {...register("testMessage")}
+            ></input>
             <div className={style.div_button}>
               <button type="submit">Submit</button>
             </div>
