@@ -6,8 +6,8 @@ import Providers from "./providers";
 const inter = Raleway({ subsets: ["latin-ext"], weight: ["500"] });
 
 export const metadata = {
-  title: "Portfolio-Fabius",
-  description: "The Portfolio of Fabius",
+  title: "Fabius Schurig | Portfolio",
+  description: "The ",
 };
 
 export default function RootLayout({ children }) {
