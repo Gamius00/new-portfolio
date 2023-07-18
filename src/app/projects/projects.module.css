@@ -1,205 +1,43 @@
 .content {
+  color: aliceblue;
+  margin-top: 170px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.items {
+  margin: 30px;
+  border-radius: 7px;
+  box-shadow: 0 0 2px #19191f, 0 0 4px #19191f, 0 0 6px #19191f, 0 0 4px #19191f,
+    0 0 8px #19191f, 0 0 10px white;
+}
+
+.items p {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
-  color: black;
-  margin-top: 50px;
-}
-
-.content2 {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  color: black;
-}
-
-.passwordgenerator {
-  margin-right: 40px;
-  width: 280px;
-  height: 200px;
-  background-color: rgb(26, 26, 26);
-  margin-top: 100px;
-  border-radius: 10px;
-}
-
-.passwordgeneratorimage {
-  position: absolute;
-  border-radius: 4px;
-  margin-left: 30px;
-  margin-top: 20px;
-}
-
-.passwordgeneratorbutton {
-  margin-top: 160px;
-  margin-left: 30px;
-  background-color: #92ffe7;
-  padding: 4px;
-  border-radius: 4px;
-  position: absolute;
-}
-
-.passwordgeneratortext {
-  position: absolute;
-  margin-top: 160px;
-  margin-left: 85px;
-  background-color: #7bf0ff;
-  padding: 4px;
-  border-radius: 4px;
-}
-
-.portfolio {
-  margin-right: 40px;
-  width: 280px;
-  height: 200px;
-  background-color: rgb(26, 26, 26);
-  margin-top: 100px;
-  border-radius: 10px;
-  transition: 0.5s;
-}
-
-.portfolioimage {
-  position: absolute;
-  border-radius: 4px;
-  margin-left: 30px;
-  margin-top: 20px;
-}
-
-.portfoliobutton {
-  margin-top: 160px;
-  margin-left: 30px;
-  background-color: #a7e7d9;
-  padding: 4px;
-  border-radius: 4px;
-  position: absolute;
-}
-
-.portfoliotext {
-  position: absolute;
-  margin-top: 160px;
-  margin-left: 85px;
-  background-color: #7bf0ff;
-  padding: 4px;
-  border-radius: 4px;
-}
-
-.kotlinapp {
-  margin-right: 40px;
-  width: 280px;
-  height: 400px;
-  background-color: rgb(26, 26, 26);
-  margin-top: 100px;
-  border-radius: 10px;
-  transition: 0.5s;
-}
-
-.kotlinappimage {
-  position: absolute;
-  border-radius: 4px;
-  margin-left: 50px;
-  margin-top: 20px;
-  height: 320px;
-  width: 170px;
-}
-
-.kotlinapptext {
-  position: absolute;
-  margin-top: 360px;
-  margin-left: 100px;
-  background-color: #7bf0ff;
-  padding: 4px;
-  border-radius: 4px;
-}
-
-.bot {
-  margin-right: 40px;
-  width: 280px;
-  height: 400px;
-  background-color: rgb(26, 26, 26);
-  margin-top: 100px;
-  border-radius: 10px;
-  transition: 0.5s;
-}
-
-.botimage {
-  position: absolute;
-  border-radius: 4px;
-  margin-left: 40px;
-  margin-top: 20px;
-  height: 320px;
-  width: 200px;
-}
-
-.bottext {
-  position: absolute;
-  margin-top: 360px;
-  margin-left: 90px;
-  background-color: #7bf0ff;
-  padding: 4px;
-  border-radius: 4px;
-}
-
-.dialog div {
-  display: flex;
-  justify-content: space-between;
-}
-
-.dialog {
-  height: 300px;
-  width: 300px;
-  border: 2px solid white;
-  border-radius: 8px;
-  background-color: rgb(87, 87, 87);
-}
-
-.dialog h1 {
-  background-color: #7bf0ff;
-  height: 33px;
-  padding: 6px;
-  border-radius: 3px;
-}
-
-.dialog h2 {
-  background-color: #d8d8d8;
-  height: 33px;
-  padding: 6px;
-  border-radius: 3px;
-  margin-top: 14px;
   width: 190px;
-}
-
-.python {
-  background-color: yellow;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 5px;
+  margin: 50px;
+  margin-bottom: 20px;
   margin-top: 10px;
-  padding: 4px;
-  width: 90px;
-  border-radius: 4px;
+  background-color: #a81a1a;
 }
 
-.HTML {
-  background-color: rgb(255, 136, 0);
-  margin-top: 10px;
-  padding: 4px;
-  width: 77px;
-  border-radius: 4px;
+.Image {
+  margin-left: 45px;
+  margin-bottom: 30px;
+  border-radius: 5px;
 }
 
-.CSS {
-  background-color: rgb(0, 162, 255);
-  margin-top: 10px;
-  padding: 4px;
-  width: 77px;
-  border-radius: 4px;
-}
-
-.JavaScript {
-  background-color: rgb(255, 238, 0);
-  margin-top: 10px;
-  padding: 4px;
-  width: 110px;
-  border-radius: 4px;
-}
-
-.test {
-  position: relative;
-  left: -10px;
+.buttonTry {
+  margin-left: 105px;
+  margin-bottom: 30px;
+  background-color: #a81a1a;
+  padding: 6px;
+  padding-left: 30px;
+  padding-right: 30px;
+  border-radius: 5px;
 }

@@ -5,160 +5,83 @@ import style from "./projects.module.css";
 import Image from "next/image";
 
 export default function page() {
-  const dialog1 = useRef(null);
-
-  const click = () => {
-    if (dialog1.current !== null) {
-      dialog1.current.showModal();
-    }
-  };
-
-  const dialog2 = useRef(null);
-
-  const click2 = () => {
-    if (dialog2.current !== null) {
-      dialog2.current.showModal();
-    }
-  };
-
-  const dialog3 = useRef(null);
-
-  const click3 = () => {
-    if (dialog3.current !== null) {
-      dialog3.current.showModal();
-    }
-  };
+  const projects = [
+    {
+      name: "Passwort-Generator",
+      image: "/password-generator.jpg",
+      height: 200,
+      width: 200,
+      try: true,
+      link: "https://password-generator-gamius.netlify.app/",
+    },
+    {
+      name: "First Portfolio",
+      image: "/portfolio.png",
+      height: 100,
+      width: 200,
+      try: true,
+      link: "https://wonderful-melomakarona-9c27ec.netlify.app/",
+    },
+    {
+      name: "Kotlin App",
+      image: "/kotlin-app.png",
+      height: 0,
+      width: 200,
+      try: false,
+    },
+    {
+      name: "Discord Bot",
+      image: "/discord-bot.png",
+      height: 200,
+      width: 200,
+      try: false,
+    },
+    {
+      name: "Weather Io",
+      image: "/weather-io.png",
+      height: 200,
+      width: 200,
+      try: false,
+    },
+    {
+      name: "Delizioso",
+      image: "/Delizioso.png",
+      height: 200,
+      width: 200,
+      try: true,
+      link: "",
+    },
+  ];
 
   return (
-    <div>
+    <>
       <div className={style.content}>
-        <div onClick={click} className={style.passwordgenerator}>
-          <Image
-            alt="Password Generator"
-            src="/password-generator.jpg"
-            width={220}
-            height={100}
-            className={style.passwordgeneratorimage}
-          />
-          <a
-            className={style.passwordgeneratorbutton}
-            href="https://password-generator-gamius.netlify.app"
-          >
-            Try
-          </a>
-          <p className={style.passwordgeneratortext}>Password Generator</p>
-        </div>
-
-        <dialog className={style.dialog} ref={dialog1}>
-          <div>
-            <h1>Password Generator</h1>
-            <form method="dialog">
-              <button className={style.closedialog}>
-                <Image
-                  alt="..."
-                  id="menu"
-                  src="/cross2.png"
-                  width={30}
-                  height={30}
-                  className={style.menu}
-                />
-              </button>
-            </form>
-          </div>
-          <h2>Programminglanguages</h2>
-        </dialog>
-
-        <div onClick={click2} className={style.portfolio}>
-          <Image
-            alt="Portfolio Fabius"
-            src="/portfolio.png"
-            width={220}
-            height={100}
-            className={style.portfolioimage}
-          />
-          <a
-            className={style.portfoliobutton}
-            href="https://64b6da11a13f1115fa013b52--gleaming-hummingbird-55663a.netlify.app/"
-          >
-            Try
-          </a>
-          <p className={style.portfoliotext}> First Portfolio</p>
-        </div>
-      </div>
-
-      <dialog className={style.dialog} ref={dialog2}>
-        <div>
-          <h1>First Portfolio</h1>
-          <form method="dialog">
-            <button className={style.closedialog}>
+        {" "}
+        {projects.map((item) => {
+          return (
+            <div style={{ backgroundColor: "#19191F" }} className={style.items}>
+              <p>{item.name}</p>
               <Image
-                alt="First Portfolio"
-                id="menu"
-                src="/cross2.png"
-                width={30}
-                height={30}
-                className={style.menu}
+                className={style.Image}
+                alt={item.name}
+                src={item.image}
+                width={item.width}
+                height={item.height}
               />
-            </button>
-          </form>
-        </div>
-        <h2>Programminglanguages</h2>
-        <li className={style.HTML}>
-          <span className={style.test}>HTML</span>
-        </li>
-        <li className={style.CSS}>
-          <span className={style.test}>CSS</span>
-        </li>
-        <li className={style.JavaScript}>
-          <span className={style.test}>JavaScript</span>
-        </li>
-      </dialog>
-
-      <div className={style.content2}>
-        <div onClick={click3} className={style.bot}>
-          <Image
-            src="/discord-bot.png"
-            alt="Discord Bot"
-            width={220}
-            height={100}
-            className={style.botimage}
-          />
-          <p className={style.bottext}> Discord Bot</p>
-        </div>
-
-        <dialog className={style.dialog} ref={dialog3}>
-          <div>
-            <h1>Discord Bot</h1>
-            <form method="dialog">
-              <button className={style.closedialog}>
-                <Image
-                  id="menu"
-                  alt="..."
-                  src="/cross2.png"
-                  width={30}
-                  height={30}
-                  className={style.menu}
-                />
-              </button>
-            </form>
-          </div>
-          <h2>Programminglanguages</h2>
-          <li className={style.python}>
-            <span className={style.test}>Python</span>
-          </li>
-        </dialog>
-
-        <div className={style.kotlinapp}>
-          <Image
-            alt="Kotlin app"
-            src="/kotlin-app.png"
-            width={220}
-            height={100}
-            className={style.kotlinappimage}
-          />
-          <p className={style.kotlinapptext}> Kotlin App</p>
-        </div>
+              {item.try ? (
+                <button
+                  onClick={() => {
+                    location.href = item.link;
+                  }}
+                  className={style.buttonTry}
+                >
+                  Try
+                </button>
+              ) : null}
+            </div>
+          );
+        })}
       </div>
-    </div>
+    </>
   );
 }

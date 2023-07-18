@@ -6,7 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function Navbar() {
-  const [imageSrc, setImageSrc] = useState("/menu3.png");
+  const [imageSrc, setImageSrc] = useState("/menu-burger.png");
 
   useEffect(() => {
     function handleScroll() {
@@ -15,20 +15,20 @@ export default function Navbar() {
       console.log(windowY);
       const views = document.getElementById("views");
 
-      if (imageSrc == "/cross2.png") {
+      if (imageSrc == "/cross.png") {
         menudiv.style.backgroundColor = "transparent";
         menudiv.style.boxShadow = "none";
         menudiv.style.height = "70px";
         menudiv.style.width = "70px";
-        setImageSrc("/menu3.png");
+        setImageSrc("/menu-burger.png");
       }
 
       if (windowY > 0) {
-        menudiv.style.backgroundColor = "#5e5e5e";
+        menudiv.style.backgroundColor = "#19191F";
         menudiv.style.boxShadow =
           "0 0 2px white, 0 0 4px white, 0 0 6px white, 0 0 4px white, 0 0 8px white, 0 0 10px white";
       } else if (windowY === 0) {
-        if (imageSrc == "/menu3.png") {
+        if (imageSrc == "/menu-burger.png") {
           menudiv.style.backgroundColor = "transparent";
           menudiv.style.boxShadow = "none";
         }
@@ -48,10 +48,10 @@ export default function Navbar() {
     const contactbutton = document.getElementById("contactbutton");
     const skillbarbutton = document.getElementById("skillbarbutton");
     const views = document.getElementById("views");
-    if (imageSrc === "/menu3.png") {
-      setImageSrc("/cross2.png");
+    if (imageSrc === "/menu-burger.png") {
+      setImageSrc("/cross.png");
       if (windowY == 0) {
-        menudiv.style.backgroundColor = "#5e5e5e";
+        menudiv.style.backgroundColor = "#19191F";
         menudiv.style.boxShadow =
           "0 0 2px white, 0 0 4px white, 0 0 6px white, 0 0 4px white, 0 0 8px white, 0 0 10px white";
       }
@@ -63,7 +63,7 @@ export default function Navbar() {
       skillbarbutton.style.display = "flex";
       views.style.display = "flex";
     } else {
-      setImageSrc("/menu3.png");
+      setImageSrc("/menu-burger.png");
       if (windowY == 0) {
         menudiv.style.backgroundColor = "transparent";
         menudiv.style.boxShadow = "none";
