@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useRef } from "react";
-import Navbar from "../Navbar";
 import style from "./projects.module.css";
 import Image from "next/image";
 
