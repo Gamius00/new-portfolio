@@ -7,7 +7,8 @@ const inter = Raleway({ subsets: ["latin-ext"], weight: ["500"] });
 
 export const metadata = {
   title: "Fabius Schurig | Portfolio",
-  description: "The ",
+  description:
+    "As a software development intern with a strong understanding of programming and a passion for it, I have expanded my portfolio by developing high-quality applications and successfully solving complex problems.",
 };
 
 export default function RootLayout({ children }) {
