@@ -23,13 +23,6 @@ export default function page() {
       link: "https://wonderful-melomakarona-9c27ec.netlify.app/",
     },
     {
-      name: "Kotlin App",
-      image: "/kotlin-app.png",
-      height: 0,
-      width: 200,
-      try: false,
-    },
-    {
       name: "Discord Bot",
       image: "/discord-bot.png",
       height: 200,
@@ -50,6 +43,13 @@ export default function page() {
       width: 200,
       try: true,
       link: "",
+    },
+    {
+      name: "Kotlin App",
+      image: "/kotlin-app.png",
+      height: 0,
+      width: 200,
+      try: false,
     },
   ];
 
