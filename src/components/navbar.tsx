@@ -13,6 +13,7 @@ export default function Navbar() {
   interface ArrayInterface {
     title: string;
     icon: any;
+    link: string;
   }
 
   const [IconBool, setIconBool] = useState(false);
@@ -28,10 +29,10 @@ export default function Navbar() {
     }
   }, [Height]);
   const pages: ArrayInterface[] = [
-    { title: "Home", icon: <AiFillHome /> },
-    { title: "Projects", icon: <HiFolderOpen /> },
-    { title: "Skills", icon: <BsFillPersonFill /> },
-    { title: "Contact", icon: <HiMail /> },
+    { title: "Home", icon: <AiFillHome />, link: "/" },
+    { title: "Projects", icon: <HiFolderOpen />, link: "/projects" },
+    { title: "Skills", icon: <BsFillPersonFill />, link: "/skillbar" },
+    { title: "Contact", icon: <HiMail />, link: "/contact" },
   ];
 
   const navBarclick = () => {
@@ -138,7 +139,12 @@ export default function Navbar() {
           <div>
             {pages.map((item) => {
               return (
-                <div className={style.all}>
+                <div
+                  onClick={() => {
+                    location.href = item.link;
+                  }}
+                  className={style.all}
+                >
                   {" "}
                   <div
                     style={{
