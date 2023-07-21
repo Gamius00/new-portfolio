@@ -6,8 +6,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { AiOutlineGithub, AiFillHome } from "react-icons/ai";
 import { BsLinkedin, BsDiscord, BsFillPersonFill } from "react-icons/bs";
-import { HiMenuAlt3, HiFolderOpen, HiMail } from "react-icons/Hi";
-import { ImCross } from "react-icons/Im";
+import { HiMenuAlt3, HiFolderOpen, HiMail } from "react-icons/hi";
+import { ImCross } from "react-icons/im";
 
 export default function Navbar() {
   interface ArrayInterface {
