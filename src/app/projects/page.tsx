@@ -3,53 +3,63 @@
 import React, { useRef } from "react";
 import style from "./projects.module.css";
 import Image from "next/image";
+import { AiOutlineGithub } from "react-icons/ai";
+
+interface IProjects {
+  name: string;
+  image: string;
+  height: number;
+  width: number;
+  link?: string;
+  github?: string;
+  warn?: string;
+}
 
 export default function page() {
-  const projects = [
+  const projects: IProjects[] = [
     {
       name: "Passwort-Generator",
-      image: "/password-generator.jpg",
+      image: "/passwordg.png",
       height: 200,
       width: 200,
-      try: true,
       link: "https://password-generator-gamius.netlify.app/",
     },
     {
       name: "First Portfolio",
-      image: "/portfolio.png",
+      image: "/portfolio2.png",
       height: 100,
       width: 200,
-      try: true,
       link: "https://wonderful-melomakarona-9c27ec.netlify.app/",
+      github: "https://github.com/Gamius00/Portfolio",
     },
     {
       name: "Discord Bot",
-      image: "/discord-bot.png",
+      image: "/dcbot.png",
       height: 200,
       width: 200,
-      try: false,
+      github: "https://github.com/Gamius00/discordbot",
     },
     {
-      name: "Weather Io",
-      image: "/weather-io.png",
+      name: "Weather.io",
+      image: "/weatherio.png",
       height: 200,
       width: 200,
-      try: false,
+      github:
+        "https://github.com/The-Creative-Programming-Group/Weather-App/tree/frontend-basic",
+      warn: "Work in progress",
     },
     {
       name: "Delizioso",
       image: "/Delizioso.png",
       height: 200,
       width: 200,
-      try: true,
-      link: "",
+      warn: "Work in progress",
     },
     {
       name: "Kotlin App",
       image: "/kotlin-app.png",
       height: 0,
       width: 200,
-      try: false,
     },
   ];
 
@@ -68,7 +78,7 @@ export default function page() {
                 width={item.width}
                 height={item.height}
               />
-              {item.try ? (
+              {item.link ? (
                 <button
                   onClick={() => {
                     location.href = item.link;
@@ -77,6 +87,27 @@ export default function page() {
                 >
                   Try
                 </button>
+              ) : null}
+              {item.github ? (
+                <div className={style.github}>
+                  <button
+                    onClick={() => {
+                      location.href = item.github;
+                    }}
+                    className={style.githubButton}
+                  >
+                    <AiOutlineGithub className={style.githubElement} />
+                    <span>Github</span>
+                  </button>
+                </div>
+              ) : null}
+              {item.warn ? (
+                <div className={style.warn}>
+                  <p>
+                    {" "}
+                    <span>{item.warn} 🚧</span>
+                  </p>
+                </div>
               ) : null}
             </div>
           );

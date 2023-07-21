@@ -11,4 +11,9 @@
   margin: 30px;
   border-radius: 5px;
   font-weight: bolder;
+  transition: 0.3s;
+}
+
+.elements:hover {
+  transform: scale(1.05);
 }

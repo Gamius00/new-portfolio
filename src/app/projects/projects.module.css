@@ -11,6 +11,13 @@
   border-radius: 7px;
   box-shadow: 0 0 2px #19191f, 0 0 4px #19191f, 0 0 6px #19191f, 0 0 4px #19191f,
     0 0 8px #19191f, 0 0 10px white;
+  transition: 0.2s;
+}
+
+.items:hover {
+  box-shadow: 0 0 2px #19191f, 0 0 4px #19191f, 0 0 6px #19191f, 0 0 7px #19191f,
+    0 0 10px #19191f, 0 0 15px white;
+  transform: scale(1.02);
 }
 
 .items p {
@@ -23,21 +30,83 @@
   margin: 50px;
   margin-bottom: 20px;
   margin-top: 10px;
-  background-color: #a81a1a;
+  font-weight: bolder;
+  font-size: 20px;
 }
 
 .Image {
   margin-left: 45px;
   margin-bottom: 30px;
   border-radius: 5px;
+  aspect-ratio: 13/15;
+  border: 2px solid black;
 }
 
 .buttonTry {
   margin-left: 105px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   background-color: #a81a1a;
   padding: 6px;
-  padding-left: 30px;
-  padding-right: 30px;
+  padding-left: 32px;
+  padding-right: 33px;
   border-radius: 5px;
+  box-shadow: 0 0 1px #ff0000, 0 0 1px #e40000, 0 0 2px #ff0000, 0 0 3px #f50808,
+    0 0 4px #ffd3d3, 0 0 6px white;
+  transition: 0.3s;
+}
+
+.buttonTry:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 2px #ffa8a8, 0 0 3px #e40000, 0 0 4px #ff0000, 0 0 5px #ff6868,
+    0 0 6px #ffabab, 0 0 7px white;
+}
+
+.github {
+  display: flex;
+  justify-content: center;
+}
+
+.githubElement {
+  height: 25px;
+  width: 25px;
+  margin-right: 5px;
+}
+
+.githubButton {
+  background-color: #26272c;
+  box-shadow: 0 0 1px #303030, 0 0 1px rgb(66, 66, 66), 0 0 2px #7c7c7c,
+    0 0 3px #9b9b9b, 0 0 4px #ffd3d3, 0 0 6px white;
+  width: 88px;
+  border-radius: 5px;
+  padding: 7px;
+  margin-left: 8px;
+  display: flex;
+  margin-bottom: 20px;
+  transition: 0.3s;
+}
+
+.githubButton:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 2px #303030, 0 0 3px rgb(66, 66, 66), 0 0 4px #7c7c7c,
+    0 0 5px #9b9b9b, 0 0 7px #ffd3d3, 0 0 8px white;
+}
+
+.warn {
+  display: flex;
+  justify-content: center;
+  margin-top: 6px;
+}
+
+.warn p {
+  font-size: 16px;
+  width: 200px;
+  border: 2px solid black;
+  background-color: rgb(34, 34, 34);
+}
+
+.warn span {
+  background: linear-gradient(to right, #fb0000, #cacaca);
+  background-position: left;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }

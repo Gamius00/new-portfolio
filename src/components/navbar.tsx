@@ -4,77 +4,47 @@ import React, { useState, useEffect } from "react";
 import style from "./navbar.module.css";
 import Image from "next/image";
 import Link from "next/link";
+import { AiOutlineGithub, AiFillHome } from "react-icons/ai";
+import { BsLinkedin, BsDiscord, BsFillPersonFill } from "react-icons/bs";
+import { HiMenuAlt3, HiFolderOpen, HiMail } from "react-icons/Hi";
+import { ImCross } from "react-icons/Im";
 
 export default function Navbar() {
-  const [imageSrc, setImageSrc] = useState("/menu-burger.png");
+  interface ArrayInterface {
+    title: string;
+    icon: any;
+  }
 
+  const [IconBool, setIconBool] = useState(false);
+  const [Icon, setIcon] = useState(<HiMenuAlt3 className={style.Icon} />);
+  const [Height, setHeight] = useState("0px");
+  const [Border, setBorder] = useState("1px solid #4b4b4b");
   useEffect(() => {
-    function handleScroll() {
-      const menudiv = document.getElementById("menudiv");
-      let windowY = window.scrollY || window.pageYOffset;
-      console.log(windowY);
-      const views = document.getElementById("views");
-
-      if (imageSrc == "/cross.png") {
-        menudiv.style.backgroundColor = "transparent";
-        menudiv.style.boxShadow = "none";
-        menudiv.style.height = "70px";
-        menudiv.style.width = "70px";
-        setImageSrc("/menu-burger.png");
-      }
-
-      if (windowY > 0) {
-        menudiv.style.backgroundColor = "#19191F";
-        menudiv.style.boxShadow =
-          "0 0 2px white, 0 0 4px white, 0 0 6px white, 0 0 4px white, 0 0 8px white, 0 0 10px white";
-      } else if (windowY === 0) {
-        if (imageSrc == "/menu-burger.png") {
-          menudiv.style.backgroundColor = "transparent";
-          menudiv.style.boxShadow = "none";
-        }
-      }
-
-      views.style.display = "none";
+    const Items = document.getElementById("Items");
+    const overlay = document.getElementById("overlay");
+    if (Items) {
+      Items.style.height = Height;
+      overlay.style.borderBottom = Border;
     }
+  }, [Height]);
+  const pages: ArrayInterface[] = [
+    { title: "Home", icon: <AiFillHome /> },
+    { title: "Projects", icon: <HiFolderOpen /> },
+    { title: "Skills", icon: <BsFillPersonFill /> },
+    { title: "Contact", icon: <HiMail /> },
+  ];
 
-    window.onscroll = handleScroll;
-  });
-
-  const handleclick = () => {
-    let windowY = window.scrollY || window.pageYOffset;
-    const menudiv = document.getElementById("menudiv");
-    const homebutton = document.getElementById("homebutton");
-    const projectbutton = document.getElementById("projectbutton");
-    const contactbutton = document.getElementById("contactbutton");
-    const skillbarbutton = document.getElementById("skillbarbutton");
-    const views = document.getElementById("views");
-    if (imageSrc === "/menu-burger.png") {
-      setImageSrc("/cross.png");
-      if (windowY == 0) {
-        menudiv.style.backgroundColor = "#19191F";
-        menudiv.style.boxShadow =
-          "0 0 2px white, 0 0 4px white, 0 0 6px white, 0 0 4px white, 0 0 8px white, 0 0 10px white";
-      }
-      menudiv.style.height = "360px";
-      menudiv.style.width = "95%";
-      homebutton.style.display = "flex";
-      projectbutton.style.display = "flex";
-      contactbutton.style.display = "flex";
-      skillbarbutton.style.display = "flex";
-      views.style.display = "flex";
+  const navBarclick = () => {
+    if (!IconBool) {
+      setIcon(<ImCross className={style.Cross} />);
+      setIconBool(true);
+      setHeight("264px");
+      setBorder("1px solid white");
     } else {
-      setImageSrc("/menu-burger.png");
-      if (windowY == 0) {
-        menudiv.style.backgroundColor = "transparent";
-        menudiv.style.boxShadow = "none";
-      }
-      menudiv.style.height = "70px";
-      menudiv.style.width = "70px";
-      homebutton.style.display = "none";
-      projectbutton.style.display = "none";
-      contactbutton.style.display = "none";
-      skillbarbutton.style.display = "none";
-      views.style.display = "none";
+      setIcon(<HiMenuAlt3 className={style.Icon} />);
+      setIconBool(false);
+      setHeight("0px");
+      setBorder("1px solid #4b4b4b");
     }
   };
 
@@ -114,7 +84,7 @@ export default function Navbar() {
               height={7}
               className={style.img}
             />{" "}
-            <p>Skillbar</p>
+            <p>Skills</p>
           </div>
         </Link>
         <Link className={style.navelement} href="/contact">
@@ -129,58 +99,62 @@ export default function Navbar() {
             <p>Contact</p>
           </div>
         </Link>
-        <Link
-          className={style.views}
-          href="https://hits.sh/portfolio-fabius.vercel.app/"
-        >
+        <Link className={style.views} href={""}>
           <img
             alt="Hits"
             src="https://hits.sh/portfolio-fabius.vercel.app.svg?style=for-the-badge&label=Views&extraCount=5&color=ff0000&labelColor=19191F"
           />
         </Link>
+        <AiOutlineGithub
+          style={{ height: "40px", width: "40px" }}
+          onClick={() => {
+            location.href = "https://github.com/Gamius00";
+          }}
+          className={style.icons}
+        />
+        <BsLinkedin
+          style={{ height: "35px", width: "35px", marginTop: "7px" }}
+          className={style.icons}
+          onClick={() => {
+            location.href =
+              "https://www.linkedin.com/in/fabius-schurig-80713b284/";
+          }}
+        />
+        <BsDiscord
+          style={{ height: "35px", width: "35px", marginTop: "7px" }}
+          className={style.icons}
+          onClick={() => {
+            location.href = "https://discord.gg/HanXgrKr8J";
+          }}
+        />
       </div>
-      <div className={style.navcenter}>
-        <div id="menudiv" className={style.menudiv}>
-          <Image
-            alt="..."
-            onClick={handleclick}
-            id="menu"
-            src={imageSrc}
-            width={40}
-            height={40}
-            className={style.menu}
-          />
-          <a id="homebutton" className={style.homebutton} href="/">
-            {" "}
-            Home
-          </a>
-          <a
-            id="projectbutton"
-            className={style.projectbutton}
-            href="/projects"
-          >
-            Projects
-          </a>
-          <a
-            id="skillbarbutton"
-            className={style.skillbarbutton}
-            href="/skillbar"
-          >
-            Skillbar
-          </a>
-          <a id="contactbutton" className={style.contactbutton} href="/contact">
-            Contact
-          </a>
-          <a
-            id="views"
-            className={style.views2}
-            href="https://hits.sh/portfolio-fabius.vercel.app/"
-          >
-            <img
-              alt="Hits"
-              src="https://hits.sh/portfolio-fabius.vercel.app.svg?style=for-the-badge&label=Views&extraCount=5&color=858585"
-            />
-          </a>
+
+      <div className={style.OverLay} id="overlay">
+        <div className={style.IconDiv}>
+          <h1>FS</h1>
+          <span onClick={navBarclick}>{Icon}</span>
+        </div>
+        <div id="Items" className={style.menu}>
+          <div>
+            {pages.map((item) => {
+              return (
+                <div className={style.all}>
+                  {" "}
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                    }}
+                  >
+                    <span style={{ marginTop: "4px", marginRight: "5px" }}>
+                      {item.icon}
+                    </span>{" "}
+                    <span>{item.title}</span>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
     </>
