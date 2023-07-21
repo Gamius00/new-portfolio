@@ -12,22 +12,23 @@ import { ImCross } from "react-icons/im";
 export default function Navbar() {
   interface ArrayInterface {
     title: string;
-    icon: any;
+    icon: JSX.Element;
     link: string;
   }
 
-  const [IconBool, setIconBool] = useState(false);
-  const [Icon, setIcon] = useState(<HiMenuAlt3 className={style.Icon} />);
-  const [Height, setHeight] = useState("0px");
-  const [Border, setBorder] = useState("1px solid #4b4b4b");
+  const [navBarclicked, setnavBarclicked] = useState(false);
+
   useEffect(() => {
     const Items = document.getElementById("Items");
     const overlay = document.getElementById("overlay");
-    if (Items) {
-      Items.style.height = Height;
-      overlay.style.borderBottom = Border;
+
+    if (!navBarclicked) {
+      Items.style.height = "0px";
+    } else {
+      Items.style.height = "264px";
     }
-  }, [Height]);
+  });
+
   const pages: ArrayInterface[] = [
     { title: "Home", icon: <AiFillHome />, link: "/" },
     { title: "Projects", icon: <HiFolderOpen />, link: "/projects" },
@@ -36,16 +37,10 @@ export default function Navbar() {
   ];
 
   const navBarclick = () => {
-    if (!IconBool) {
-      setIcon(<ImCross className={style.Cross} />);
-      setIconBool(true);
-      setHeight("264px");
-      setBorder("1px solid white");
+    if (!navBarclicked) {
+      setnavBarclicked(true);
     } else {
-      setIcon(<HiMenuAlt3 className={style.Icon} />);
-      setIconBool(false);
-      setHeight("0px");
-      setBorder("1px solid #4b4b4b");
+      setnavBarclicked(false);
     }
   };
 
@@ -103,7 +98,7 @@ export default function Navbar() {
         <Link className={style.views} href={""}>
           <img
             alt="Hits"
-            src="https://hits.sh/portfolio-fabius.vercel.app.svg?style=for-the-badge&label=Views&extraCount=5&color=ff0000&labelColor=19191F"
+            src="https://hits.sh/schurig.tech.svg?style=for-the-badge&label=Views&extraCount=5&color=ff0000&labelColor=19191F"
           />
         </Link>
         <AiOutlineGithub
@@ -133,7 +128,13 @@ export default function Navbar() {
       <div className={style.OverLay} id="overlay">
         <div className={style.IconDiv}>
           <h1>FS</h1>
-          <span onClick={navBarclick}>{Icon}</span>
+          <span onClick={navBarclick}>
+            {navBarclicked ? (
+              <ImCross className={style.Cross} />
+            ) : (
+              <HiMenuAlt3 className={style.Icon} />
+            )}
+          </span>
         </div>
         <div id="Items" className={style.menu}>
           <div>
