@@ -28,10 +28,11 @@
 .IconDiv {
   display: flex;
   justify-content: space-between;
-  margin-top: 10px;
+  padding-top: 10px;
   margin-right: 10px;
   margin-left: 10px;
-  margin-bottom: 10px;
+  padding-bottom: 10px;
+  background-color: #000000;
 }
 
 .IconDiv h1 {
@@ -42,11 +43,16 @@
 
 .OverLay {
   border-bottom: 2px solid #999999;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 98;
 }
 
 .Icon {
   height: 40px;
   width: 40px;
+  right: 10px;
 }
 
 .Cross {
