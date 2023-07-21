@@ -98,7 +98,7 @@ export default function Navbar() {
         <Link className={style.views} href={""}>
           <img
             alt="Hits"
-            src="https://hits.sh/schurig.tech.svg?style=for-the-badge&label=Views&color=f60004&labelColor=302525"
+            src="https://hits.sh/www.schurig.tech.svg?style=for-the-badge&color=a81a1a&labelColor=19191F"
           />
         </Link>
         <AiOutlineGithub
