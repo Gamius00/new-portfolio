@@ -1,0 +1,19 @@
+.content {
+  margin: 43px;
+  margin-top: 120px;
+  display: flex;
+  justify-content: center;
+}
+
+.content h1 {
+  font-size: 25px;
+  margin-bottom: 20px;
+}
+
+.content div {
+  display: block;
+}
+
+.haftung {
+  margin-top: 50px;
+}

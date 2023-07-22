@@ -13,6 +13,18 @@
   justify-content: center;
 }
 
+.impressum {
+  position: absolute;
+  bottom: 0;
+  margin-left: 48%;
+  margin-bottom: 20px;
+  text-decoration: underline;
+}
+
+.impressum span {
+  cursor: pointer;
+}
+
 .contentbox input {
   margin-left: 10px;
   margin-right: 10px;
