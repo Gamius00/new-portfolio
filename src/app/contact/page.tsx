@@ -137,6 +137,7 @@ export default function contact() {
                   }}
                   id="options"
                   name="category"
+                  {...register("category")}
                 >
                   <option value="option1">Feedback</option>
                   <option value="option2">Report</option>
