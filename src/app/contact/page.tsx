@@ -129,16 +129,6 @@ export default function contact() {
           </form>
         </div>
       </div>
-      <div className={style.impressum}>
-        {" "}
-        <span
-          onClick={() => {
-            location.href = "/impressum";
-          }}
-        >
-          Impressum
-        </span>
-      </div>
     </div>
   );
 }

@@ -3,6 +3,7 @@ import { Raleway } from "next/font/google";
 import Navbar from "../components/navbar";
 import Providers from "./providers";
 import { Analytics } from "@vercel/analytics/react";
+import Link from "next/link";
 
 const inter = Raleway({ subsets: ["latin-ext"], weight: ["500"] });
 
@@ -19,6 +20,17 @@ export default function RootLayout({ children }) {
         <Navbar />
         <Providers>{children}</Providers>
         <Analytics />
+        <Link
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            textDecoration: "underline",
+            marginBottom: "20px",
+          }}
+          href="/impressum"
+        >
+          Impressum
+        </Link>
       </body>
     </html>
   );

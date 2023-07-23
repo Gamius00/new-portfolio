@@ -11,6 +11,7 @@
 .contentflexbox {
   display: flex;
   justify-content: center;
+  min-height: 95vh;
 }
 
 .impressum {
