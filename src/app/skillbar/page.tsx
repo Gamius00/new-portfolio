@@ -3,6 +3,7 @@
 import React from "react";
 import style from "./skillbar.module.css";
 import { DiHtml5 } from "react-icons/di";
+import Link from "next/link";
 import {
   BiLogoJavascript,
   BiLogoTypescript,
@@ -12,8 +13,13 @@ import {
 import { BsGithub } from "react-icons/bs";
 import { FaReact, FaCircle } from "react-icons/fa";
 import { TbBrandNextjs, TbBrandVscode } from "react-icons/tb";
-import { SiKotlin, SiWindows11 } from "react-icons/si";
-import { useState } from "react";
+import {
+  SiKotlin,
+  SiWindows11,
+  SiPycharm,
+  SiTailwindcss,
+} from "react-icons/si";
+import { useEffect, useState } from "react";
 import { SiAndroidstudio } from "react-icons/si";
 import { FiFigma } from "react-icons/fi";
 import { IoLogoVercel } from "react-icons/io5";
@@ -49,7 +55,7 @@ export default function page() {
       name: "TypeScript",
       image: <BiLogoTypescript className={style.icon} />,
       hover: "#2d79c7",
-      level: 8,
+      level: 7,
     },
     {
       name: "Kotlin",
@@ -76,7 +82,13 @@ export default function page() {
       name: "Next.js",
       image: <TbBrandNextjs className={style.icon} />,
       hover: "purple",
-      level: 8,
+      level: 9,
+    },
+    {
+      name: "Tailwind CSS",
+      image: <SiTailwindcss className={style.icon} />,
+      hover: "#00b6ff",
+      level: 3,
     },
   ];
 
@@ -85,31 +97,43 @@ export default function page() {
       name: "VS Code",
       image: <TbBrandVscode className={style.icon} />,
       hover: "#00b6ff",
+      level: 10,
     },
     {
       name: "Github",
       image: <BsGithub className={style.icon} />,
       hover: "gray",
+      level: 8,
     },
     {
       name: "Android Studio",
       image: <SiAndroidstudio className={style.icon} />,
       hover: "green",
+      level: 8,
     },
     {
       name: "Figma",
       image: <FiFigma className={style.icon} />,
       hover: "#dbdab7",
+      level: 8,
     },
     {
       name: "Windows",
       image: <SiWindows11 className={style.icon} />,
       hover: "#00b6ff",
+      level: 9,
     },
     {
       name: "Vercel",
       image: <IoLogoVercel className={style.icon} />,
       hover: "#5d5d5d",
+      level: 7,
+    },
+    {
+      name: "PyCharm",
+      image: <SiPycharm className={style.icon} />,
+      hover: "#a9da47",
+      level: 9,
     },
   ];
 
@@ -129,6 +153,74 @@ export default function page() {
             height: "15px",
             width: "15px",
             color: color2 === index ? `${color}` : "#9D9D9D",
+            transition: "color 0.3s",
+          }}
+        />
+      );
+    }
+
+    // Füge die weißen 'FaCircle'-SVGs hinzu (falls erforderlich).
+    for (let i = level; i < maxLevel; i++) {
+      circles.push(
+        <FaCircle
+          style={{
+            color: "white",
+            height: "15px",
+            width: "15px",
+          }}
+        />
+      );
+    }
+
+    return circles;
+  };
+
+  const renderFaCircles2 = (level, index, color) => {
+    const maxLevel = 10;
+    const circles = [];
+
+    // Füge zuerst die roten 'FaCircle'-SVGs hinzu.
+    for (let i = 0; i < Math.min(level, maxLevel); i++) {
+      circles.push(
+        <FaCircle
+          style={{
+            height: "15px",
+            width: "15px",
+            color: color3 === index ? `${color}` : "#9D9D9D",
+            transition: "color 0.3s",
+          }}
+        />
+      );
+    }
+
+    // Füge die weißen 'FaCircle'-SVGs hinzu (falls erforderlich).
+    for (let i = level; i < maxLevel; i++) {
+      circles.push(
+        <FaCircle
+          style={{
+            color: "white",
+            height: "15px",
+            width: "15px",
+          }}
+        />
+      );
+    }
+
+    return circles;
+  };
+
+  const renderFaCircles3 = (level, index, color) => {
+    const maxLevel = 10;
+    const circles = [];
+
+    // Füge zuerst die roten 'FaCircle'-SVGs hinzu.
+    for (let i = 0; i < Math.min(level, maxLevel); i++) {
+      circles.push(
+        <FaCircle
+          style={{
+            height: "15px",
+            width: "15px",
+            color: color4 === index ? `${color}` : "#9D9D9D",
             transition: "color 0.3s",
           }}
         />
@@ -221,24 +313,26 @@ export default function page() {
       </div>
       <div className={style.header}>Frameworks</div>
       <div id="Test" className={style.content}>
-        {framework.map((listelement, index) => (
+        {framework.map((listelement, index2) => (
           <div
             className={style.elements}
             style={{
               border:
-                hoveredElementframework === index
+                hoveredElementframework === index2
                   ? `1px solid ${listelement.hover}`
                   : "1px solid white",
               color:
-                hoveredElementframework === index
+                hoveredElementframework === index2
                   ? `${listelement.hover}`
                   : "white",
             }}
             onMouseOver={() => {
-              setHoveredElementframework(index);
+              setHoveredElementframework(index2);
+              setColor1(index2);
             }}
             onMouseOut={() => {
               setHoveredElementframework(null);
+              setColor1(null);
             }}
           >
             <div>
@@ -273,14 +367,14 @@ export default function page() {
                 Confident Level
               </p>
               <div style={{ display: "flex", justifyContent: "center" }}>
-                {renderFaCircles(listelement.level, index, listelement.hover)}
+                {renderFaCircles2(listelement.level, index2, listelement.hover)}
               </div>
             </div>
           </div>
         ))}
       </div>
       <div className={style.header}>Tools</div>
-      <div style={{ minHeight: "37vh" }} id="Test" className={style.content}>
+      <div style={{}} id="Test" className={style.content}>
         {tools.map((listelement, index) => (
           <div
             className={style.elements}
@@ -296,9 +390,11 @@ export default function page() {
             }}
             onMouseOver={() => {
               setHoveredElementtools(index);
+              setColor2(index);
             }}
             onMouseOut={() => {
               setHoveredElementtools(null);
+              setColor2(null);
             }}
           >
             <div>
@@ -320,9 +416,62 @@ export default function page() {
               >
                 {listelement.name}
               </p>
+              <p
+                style={{
+                  color: "white",
+                  marginTop: "12px",
+                  fontSize: "17px",
+                  display: "flex",
+                  justifyContent: "center",
+                  marginBottom: "3px",
+                }}
+              >
+                Confident Level
+              </p>
+              <div style={{ display: "flex", justifyContent: "center" }}>
+                {renderFaCircles3(listelement.level, index, listelement.hover)}
+              </div>
             </div>
           </div>
         ))}
+      </div>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          minHeight: "33vh",
+          marginTop: "50px",
+        }}
+      >
+        <div style={{ display: "block" }}>
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <h1 style={{ fontSize: "27px" }}>Programming Career</h1>
+          </div>
+          <p
+            style={{
+              fontSize: "18px",
+              margin: "20px",
+              marginRight: "30px",
+              marginLeft: "30px",
+            }}
+          >
+            Welcome to my Skills page, where I proudly present you my
+            programming skills. <br /> These skill assessments were not
+            arbitrarily selected <br />
+            rather, they have been carefully evaluated by Jakob Rössner, <br />{" "}
+            an programmer, who accompanied me on my Programmer Career <br />
+            for several months. You can find Jakob's portfolio at <br />
+            <Link
+              href="https://www.roessner.tech"
+              style={{ color: "#a81a1a", textDecoration: "underline" }}
+            >
+              https://www.roessner.tech
+            </Link>
+            . While these evaluations offer a valuable <br />
+            orientation, please keep in mind that they serve as a rough gauge of
+            my abilities.
+          </p>
+        </div>
       </div>
     </div>
   );

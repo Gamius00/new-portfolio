@@ -139,8 +139,8 @@ export default function contact() {
                   name="category"
                   {...register("category")}
                 >
-                  <option value="option1">Feedback</option>
-                  <option value="option2">Report</option>
+                  <option value="Feedback">Feedback</option>
+                  <option value="Report">Report</option>
                 </select>
               </label>
               {errors.category && <p>{errors.category.message}</p>}

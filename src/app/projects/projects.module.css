@@ -10,14 +10,12 @@
 .items {
   margin: 30px;
   border-radius: 7px;
-  box-shadow: 0 0 2px #19191f, 0 0 4px #19191f, 0 0 6px #19191f, 0 0 4px #19191f,
-    0 0 8px #19191f, 0 0 10px white;
+  border: 1px solid white;
   transition: 0.2s;
 }
 
 .items:hover {
-  box-shadow: 0 0 2px #19191f, 0 0 4px #19191f, 0 0 6px #19191f, 0 0 7px #19191f,
-    0 0 10px #19191f, 0 0 15px white;
+  border: 1px solid #818181;
   transform: scale(1.02);
 }
 
