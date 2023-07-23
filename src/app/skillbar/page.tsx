@@ -12,10 +12,11 @@ import {
 import { BsGithub } from "react-icons/bs";
 import { FaReact } from "react-icons/fa";
 import { TbBrandNextjs, TbBrandVscode } from "react-icons/tb";
-import { SiKotlin } from "react-icons/si";
+import { SiKotlin, SiWindows11 } from "react-icons/si";
 import { useState } from "react";
 import { SiAndroidstudio } from "react-icons/si";
 import { FiFigma } from "react-icons/fi";
+import { IoLogoVercel } from "react-icons/io5";
 
 export default function page() {
   interface Array {
@@ -43,7 +44,7 @@ export default function page() {
     {
       name: "TypeScript",
       image: <BiLogoTypescript className={style.icon} />,
-      hover: "blue",
+      hover: "#2d79c7",
     },
     {
       name: "Kotlin",
@@ -90,6 +91,16 @@ export default function page() {
       name: "Figma",
       image: <FiFigma className={style.icon} />,
       hover: "#dbdab7",
+    },
+    {
+      name: "Windows",
+      image: <SiWindows11 className={style.icon} />,
+      hover: "#00b6ff",
+    },
+    {
+      name: "Vercel",
+      image: <IoLogoVercel className={style.icon} />,
+      hover: "#5d5d5d",
     },
   ];
 

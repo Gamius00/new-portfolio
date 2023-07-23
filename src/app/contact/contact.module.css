@@ -2,7 +2,7 @@
   background-color: rgb(31, 31, 31);
   margin-top: 140px;
   border-radius: 15px;
-  height: 410px;
+  height: fit-content;
   padding: 10px;
   width: 550px;
   border: 2px solid white;
@@ -12,6 +12,14 @@
   display: flex;
   justify-content: center;
   min-height: 95vh;
+}
+
+.error {
+  font-size: 12px;
+  color: red;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
 }
 
 .impressum {
@@ -27,9 +35,7 @@
 }
 
 .contentbox input {
-  margin-left: 10px;
-  margin-right: 10px;
-  margin-top: 20px;
+  margin-top: 15px;
   border-radius: 5px;
   color: black;
 }
@@ -39,6 +45,11 @@
   justify-content: space-around;
   margin-top: 30px;
   color: aliceblue;
+}
+
+.Email {
+  display: flex;
+  justify-content: center;
 }
 
 .Titles {
@@ -54,7 +65,7 @@
 }
 
 .textarea {
-  margin-top: 20px;
+  margin-top: 10px;
   display: flex;
   justify-content: center;
 }

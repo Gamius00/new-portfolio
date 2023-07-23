@@ -1,14 +1,18 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import style from "./contact.module.css";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function contact() {
+  const [isMobile, setIsMobile] = useState(0);
+
   const ContactValidator = z.object({
     email: z.string().email({ message: "Invalid email address." }),
     name: z
@@ -51,13 +55,16 @@ export default function contact() {
       }
     },
     onSuccess: () => {
-      // alert("Email sent!");
-      // !!
+      setIsMobile(isMobile + 1);
     },
     onError: (error) => {
       console.error(error);
     },
   });
+
+  useEffect(() => {
+    if (isMobile != 0) toast.success("Email sent successfully!");
+  }, [isMobile]);
 
   const onSubmit = (data: Inputs) => {
     submitHandler(data);
@@ -65,7 +72,8 @@ export default function contact() {
   };
 
   return (
-    <div>
+    <>
+      <ToastContainer theme="dark" autoClose={10000} />;
       <div className={style.contentflexbox}>
         <div className={style.contentbox}>
           <form onSubmit={handleSubmit(onSubmit)}>
@@ -74,36 +82,74 @@ export default function contact() {
               <label>*Name</label>
             </div>
             <div className={style.Inputs}>
-              <input
-                className={style.Email}
-                name="email"
-                {...register("email")}
-              />
-              {errors.email && <p>{errors.email.message}</p>}
-              <input className={style.Name} name="name" {...register("name")} />
-              {errors.name && <p>{errors.name.message}</p>}
+              <div style={{ display: "block" }}>
+                {errors.email && (
+                  <p className={style.error}>{errors.email.message}</p>
+                )}
+                <div style={{ display: "flex", justifyContent: "center" }}>
+                  <input
+                    className={style.Email}
+                    name="email"
+                    {...register("email")}
+                  />
+                </div>
+              </div>
+              <div>
+                <div style={{ display: "block" }}>
+                  {errors.name && (
+                    <p className={style.error}>{errors.name.message}</p>
+                  )}
+                  <div style={{ display: "flex", justifyContent: "center" }}>
+                    <input
+                      className={style.Name}
+                      name="name"
+                      {...register("name")}
+                    />
+                  </div>
+                </div>
+              </div>
             </div>
             <div className={style.Titles}>
               <label>*Title</label>
               <label>Category</label>
             </div>
             <div className={style.Inputs}>
-              <input
-                className={style.Title}
-                name="title"
-                {...register("title")}
-              />
-              {errors.title && <p>{errors.title.message}</p>}
-              <input
-                className={style.Name}
-                name="category"
-                {...register("category")}
-              />
+              <div style={{ display: "block" }}>
+                {errors.title && (
+                  <p className={style.error}> {errors.title.message}</p>
+                )}
+
+                <input
+                  className={style.Title}
+                  name="title"
+                  {...register("title")}
+                />
+              </div>
+
+              <label>
+                <select
+                  style={{
+                    width: "180px",
+                    borderRadius: "5px",
+                    height: "25px",
+                    marginTop: "15px",
+                    color: "black",
+                  }}
+                  id="options"
+                  name="category"
+                >
+                  <option value="option1">Feedback</option>
+                  <option value="option2">Report</option>
+                </select>
+              </label>
               {errors.category && <p>{errors.category.message}</p>}
             </div>
             <div className={style.Message_Title}>
               <label>*Message</label>
             </div>
+            {errors.message && (
+              <p className={style.error}>{errors.message.message}</p>
+            )}
             <div className={style.textarea}>
               <textarea
                 name="message"
@@ -116,7 +162,6 @@ export default function contact() {
                 }}
                 {...register("message")}
               />
-              {errors.message && <p>{errors.message.message}</p>}
             </div>
             {/* This is a honeypot to prevent spam */}
             <input
@@ -129,6 +174,6 @@ export default function contact() {
           </form>
         </div>
       </div>
-    </div>
+    </>
   );
 }
