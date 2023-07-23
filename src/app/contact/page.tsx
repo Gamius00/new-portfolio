@@ -62,18 +62,38 @@ export default function contact() {
     },
   });
 
+  const toastId = React.useRef(null);
+
   useEffect(() => {
-    if (isMobile != 0) toast.success("Email sent successfully!");
+    if (isMobile != 0)
+      toast.update(toastId.current, {
+        render: "Email sent successfully!",
+        type: toast.TYPE.SUCCESS,
+        autoClose: 5000,
+      });
   }, [isMobile]);
 
   const onSubmit = (data: Inputs) => {
+    toastId.current = toast("Sending...", { autoClose: false });
     submitHandler(data);
     reset();
   };
 
   return (
     <>
-      <ToastContainer theme="dark" autoClose={10000} />;
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        limit={1}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
       <div className={style.contentflexbox}>
         <div className={style.contentbox}>
           <form onSubmit={handleSubmit(onSubmit)}>
