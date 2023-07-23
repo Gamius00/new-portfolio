@@ -12,6 +12,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 export default function contact() {
   const [isMobile, setIsMobile] = useState(0);
+  const toastIdRef = useRef(null);
 
   const ContactValidator = z.object({
     email: z.string().email({ message: "Invalid email address." }),
@@ -66,15 +67,23 @@ export default function contact() {
 
   useEffect(() => {
     if (isMobile != 0)
-      toast.update(toastId.current, {
+      toast.update(toastIdRef.current, {
         render: "Email sent successfully!",
         type: toast.TYPE.SUCCESS,
         autoClose: 5000,
+        isLoading: false,
       });
   }, [isMobile]);
 
   const onSubmit = (data: Inputs) => {
-    toastId.current = toast("Sending...", { autoClose: false });
+    const toastId = toast.loading("Please wait...");
+    toast.update(toastId, {
+      render: "Sending...",
+      isLoading: true,
+    });
+
+    toastIdRef.current = toastId;
+
     submitHandler(data);
     reset();
   };
