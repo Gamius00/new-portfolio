@@ -32,7 +32,6 @@
   margin-right: 10px;
   margin-left: 10px;
   padding-bottom: 10px;
-  background-color: #000000;
 }
 
 .IconDiv h1 {
@@ -46,7 +45,8 @@
   position: fixed;
   width: 100%;
   top: 0;
-  z-index: 98;
+  z-index: 99;
+  background-color: #000000;
 }
 
 .Icon {
@@ -197,5 +197,11 @@
   .navcenter {
     display: flex;
     justify-content: end;
+  }
+}
+
+@media screen and (min-width: 1021px) {
+  .OverLay {
+    display: none;
   }
 }
