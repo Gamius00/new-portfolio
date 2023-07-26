@@ -18,6 +18,7 @@ import {
   SiWindows11,
   SiPycharm,
   SiTailwindcss,
+  SiIntellijidea
 } from "react-icons/si";
 import { useEffect, useState } from "react";
 import { SiAndroidstudio } from "react-icons/si";
@@ -88,7 +89,7 @@ export default function page() {
       name: "Tailwind CSS",
       image: <SiTailwindcss className={style.icon} />,
       hover: "#00b6ff",
-      level: 3,
+      level: 6,
     },
   ];
 
@@ -134,6 +135,12 @@ export default function page() {
       image: <SiPycharm className={style.icon} />,
       hover: "#a9da47",
       level: 9,
+    },
+    {
+      name: "IntelliJ",
+      image: <SiIntellijidea className={style.icon} />,
+      hover: "#f94600",
+      level: 7,
     },
   ];
 
