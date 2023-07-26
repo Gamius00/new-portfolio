@@ -309,7 +309,7 @@ export default function page() {
                   marginBottom: "3px",
                 }}
               >
-                Confident Level
+                Confidence Level
               </p>
               <div style={{ display: "flex", justifyContent: "center" }}>
                 {renderFaCircles(listelement.level, index, listelement.hover)}
@@ -371,7 +371,7 @@ export default function page() {
                   marginBottom: "3px",
                 }}
               >
-                Confident Level
+                Confidence Level
               </p>
               <div style={{ display: "flex", justifyContent: "center" }}>
                 {renderFaCircles2(listelement.level, index2, listelement.hover)}
@@ -433,7 +433,7 @@ export default function page() {
                   marginBottom: "3px",
                 }}
               >
-                Confident Level
+                Confidence Level
               </p>
               <div style={{ display: "flex", justifyContent: "center" }}>
                 {renderFaCircles3(listelement.level, index, listelement.hover)}
