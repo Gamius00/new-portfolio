@@ -103,106 +103,61 @@ export default function contact() {
         pauseOnHover
         theme="dark"
       />
-      <div className={style.contentflexbox}>
-        <div className={style.contentbox}>
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <div className={style.Titles}>
-              <label>*Email</label>
-              <label>*Name</label>
-            </div>
-            <div className={style.Inputs}>
-              <div style={{ display: "block" }}>
-                {errors.email && (
-                  <p className={style.error}>{errors.email.message}</p>
-                )}
-                <div style={{ display: "flex", justifyContent: "center" }}>
-                  <input
-                    className={style.Email}
-                    name="email"
-                    {...register("email")}
-                  />
-                </div>
-              </div>
-              <div>
-                <div style={{ display: "block" }}>
-                  {errors.name && (
-                    <p className={style.error}>{errors.name.message}</p>
-                  )}
-                  <div style={{ display: "flex", justifyContent: "center" }}>
-                    <input
-                      className={style.Name}
-                      name="name"
-                      {...register("name")}
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className={style.Titles}>
-              <label>*Title</label>
-              <label>Category</label>
-            </div>
-            <div className={style.Inputs}>
-              <div style={{ display: "block" }}>
-                {errors.title && (
-                  <p className={style.error}> {errors.title.message}</p>
-                )}
-
-                <input
-                  className={style.Title}
-                  name="title"
-                  {...register("title")}
-                />
-              </div>
-
-              <label>
-                <select
-                  style={{
-                    width: "180px",
-                    borderRadius: "5px",
-                    height: "25px",
-                    marginTop: "15px",
-                    color: "black",
-                  }}
-                  id="options"
-                  name="category"
-                  {...register("category")}
-                >
-                  <option value="Feedback">Feedback</option>
-                  <option value="Report">Report</option>
-                </select>
-              </label>
-              {errors.category && <p>{errors.category.message}</p>}
-            </div>
-            <div className={style.Message_Title}>
-              <label>*Message</label>
-            </div>
-            {errors.message && (
-              <p className={style.error}>{errors.message.message}</p>
+      <div className={style.content}>
+        <div style={{ backgroundColor: "#19191F", padding: "19px", borderRadius: "5px", border: "1px solid white"}}>
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <div className={style.pairGroup}>
+          <div className={style.inputGroup}>
+            {errors.email && (
+                <p className={style.error}>{errors.email.message}</p>
             )}
-            <div className={style.textarea}>
-              <textarea
-                name="message"
-                style={{
-                  width: "85%",
-                  borderRadius: "5px",
-                  height: "100px",
-                  color: "black",
-                  resize: "none",
-                }}
-                {...register("message")}
-              />
-            </div>
-            {/* This is a honeypot to prevent spam */}
+            <span>*Email</span>
+            <input type="text" name="email" {...register("email")} />
+          </div>
+          <div className={style.inputGroup}>
+            {errors.name && (
+                <p className={style.error}>{errors.name.message}</p>
+            )}
+            <span>*Name</span>
+            <input type="text"    name="name"
+                   {...register("name")}/>
+          </div>
+          </div>
+          <div className={style.pairGroup}>
+          <div className={style.inputGroup}>
+            {errors.title && (
+                <p className={style.error}> {errors.title.message}</p>
+            )}
+            <span>*Title</span>
+            <input type="text"     name="title"
+                   {...register("title")} />
+          </div>
+          <div className={style.inputGroup}>
+            <span>*Category</span>
+            <select style={{color: "black", width: "100%", marginRight: "85px"}} id="options" name="category" {...register("category")}>
+              <option value="Feedback">Feedback</option>
+              <option value="Report">Report</option>
+            </select>
+          </div>
+          </div>
+          <div className={style.pairGroup}>
+          <div className={style.inputGroup}>
+            {errors.message && (
+                <p className={style.error}>{errors.message.message}</p>
+            )}
+            <span>*Message</span>
+            <textarea style={{width: "100%", marginRight: "280px"}}    {...register("message")}></textarea>
+          </div>
             <input
-              style={{ display: "none" }}
-              {...register("testMessage")}
+                style={{ display: "none" }}
+                {...register("testMessage")}
             ></input>
-            <div className={style.div_button}>
-              <button type="submit">Submit</button>
-            </div>
-          </form>
-        </div>
+          </div>
+          <div className={style.button}>
+            <button type="submit">Submit</button>
+          </div>
+        </form>
+      </div>
       </div>
     </>
   );
