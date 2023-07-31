@@ -108,27 +108,27 @@ export default function contact() {
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className={style.pairGroup}>
           <div className={style.inputGroup}>
+            <span>*Email</span>
             {errors.email && (
                 <p className={style.error}>{errors.email.message}</p>
             )}
-            <span>*Email</span>
             <input type="text" name="email" {...register("email")} />
           </div>
           <div className={style.inputGroup}>
+            <span>*Name</span>
             {errors.name && (
                 <p className={style.error}>{errors.name.message}</p>
             )}
-            <span>*Name</span>
             <input type="text"    name="name"
                    {...register("name")}/>
           </div>
           </div>
           <div className={style.pairGroup}>
           <div className={style.inputGroup}>
+            <span>*Title</span>
             {errors.title && (
                 <p className={style.error}> {errors.title.message}</p>
             )}
-            <span>*Title</span>
             <input type="text"     name="title"
                    {...register("title")} />
           </div>
@@ -142,10 +142,10 @@ export default function contact() {
           </div>
           <div className={style.pairGroup}>
           <div className={style.inputGroup}>
+            <span>*Message</span>
             {errors.message && (
                 <p className={style.error}>{errors.message.message}</p>
             )}
-            <span>*Message</span>
             <textarea style={{width: "100%", marginRight: "280px"}}    {...register("message")}></textarea>
           </div>
             <input

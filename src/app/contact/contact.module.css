@@ -43,6 +43,11 @@
   box-sizing: border-box;
 }
 
+.error  {
+  color: red;
+  font-size: 12px;
+}
+
 /* Styling for the submit button */
 .button {
   display: flex;
