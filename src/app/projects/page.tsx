@@ -44,6 +44,7 @@ export default function page() {
       image: "/weatherio.png",
       height: 200,
       width: 200,
+      link: "https://weather-app-git-frontend-basic-creative-programming-group.vercel.app",
       github:
         "https://github.com/The-Creative-Programming-Group/Weather-App/tree/frontend-basic",
       warn: "Work in progress",
@@ -79,6 +80,7 @@ export default function page() {
                 height={item.height}
               />
               {item.link ? (
+                  <div className={style.buttonDiv}>
                 <button
                   onClick={() => {
                     location.href = item.link;
@@ -87,6 +89,7 @@ export default function page() {
                 >
                   Try
                 </button>
+                  </div>
               ) : null}
               {item.github ? (
                 <div className={style.github}>
