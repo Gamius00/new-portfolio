@@ -8,7 +8,7 @@
   margin-top: 205px;
   color: #ffffff;
   display: flex;
-  justify-self: space-between;
+  justify-content: space-between;
 }
 
 .fabiustext {
@@ -36,32 +36,32 @@
   width: 80%;
 }
 
-.About div {
+.Text div {
   display: flex;
   justify-content: center;
   margin-bottom: 70px;
 }
 
-.AboutHead {
+.TextHead {
   margin-top: 130px;
 }
 
-.AboutContent {
+.TextContent {
   margin-top: 30px;
   color: #ffffff;
 }
 
-.About h1 {
+.Text h1 {
   font-size: 1.5em;
   color: #dbdbdb;
 }
 
-.About div p {
+.Text div p {
   width: 48%;
   font-size: 1.1em;
 }
 
-.About div p span {
+.Text div p span {
   background: linear-gradient(to right, #fb0000, #cacaca);
   background-position: left;
   -webkit-background-clip: text;

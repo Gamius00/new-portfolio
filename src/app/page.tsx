@@ -5,6 +5,14 @@ import style from "./home.module.css";
 import { TypeAnimation } from "react-type-animation";
 
 export default function Home() {
+
+    const date = new Date();
+
+    const Year = date.getFullYear();
+    const Month = date.getMonth() + 1;
+    const Day = date.getDate();
+    const age = Month > 1 || (Month === 1 && Day > 2) ? Year - 2009 : Year - 2009 - 1;
+
   return (
     <>
       <div className={style.hello}>
@@ -43,14 +51,14 @@ export default function Home() {
         </div>
       </div>
 
-      <div className={style.About}>
-        <div className={style.AboutHead}>
+      <div className={style.Text}>
+        <div className={style.TextHead}>
           <h1>About Me</h1>
         </div>
-        <div className={style.AboutContent}>
+        <div className={style.TextContent}>
           <p>
             My name is Fabius, and I am an enthusiastic{" "}
-            <span>14 years old programmer</span>. Since my early childhood, I
+            <span>{age} years old programmer</span>. Since my early childhood, I
             have been fascinated by the world of technology, and I have always
             been interested in computers and how they work. <br />
             <br /> This passion eventually led me to programming, where I can
@@ -66,6 +74,25 @@ export default function Home() {
           </p>
         </div>
       </div>
+        <div className={style.Text}>
+            <div className={style.TextHead}>
+                <h1>Hobbies</h1>
+            </div>
+            <div className={style.TextContent}>
+                <p>
+                    Problem-solving and crafting from scratch truly resonate with me. Additionally, <br/>
+                    the strategic challenges of chess captivate me.
+                    The intricate moves and mental agility required make it truly rewarding.
+                    <br/>
+                    <br/>
+                    Participating in chess tournaments is a must for me, where I compete with fellow players,
+                    finding enrichment in every match. These hobbies,
+                    though distinct, align with my love for intellectual challenges and creative solutions.
+                    Debugging code or planning a chess move both offer a truly gratifying sense of accomplishment.
+
+                </p>
+            </div>
+        </div>
     </>
   );
 }
