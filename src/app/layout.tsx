@@ -4,6 +4,7 @@ import Navbar from "../components/navbar";
 import Providers from "./providers";
 import { Analytics } from "@vercel/analytics/react";
 import Link from "next/link";
+import { BiLinkExternal } from "react-icons/bi"
 
 const inter = Raleway({ subsets: ["latin-ext"], weight: ["500"] });
 const date = new Date();
@@ -36,6 +37,7 @@ export default function RootLayout({ children }) {
           }}
           href="/impressum"
         >
+            <BiLinkExternal style={{ marginTop: "4px" , marginRight: "4px"}}/>
           Impressum
         </Link>
       </body>
