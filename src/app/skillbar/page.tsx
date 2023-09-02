@@ -115,7 +115,7 @@ export default function page() {
     {
       name: "Figma",
       image: <FiFigma className={style.icon} />,
-      hover: "#dbdab7",
+      hover: "#DDDA83",
       level: 8,
     },
     {
