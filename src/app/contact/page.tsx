@@ -44,6 +44,9 @@ export default function contact() {
     reset,
   } = useForm<Inputs>({
     resolver: zodResolver(ContactValidator),
+    defaultValues: {
+      category: "Feedback",
+    },
   });
 
   const { mutate: submitHandler } = useMutation({
@@ -88,7 +91,7 @@ export default function contact() {
     reset();
   };
 
-  return (
+    return (
     <>
       <ToastContainer
         position="top-center"
@@ -125,7 +128,7 @@ export default function contact() {
           </div>
           <div className={style.pairGroup}>
           <div className={style.inputGroup}>
-            <span>*Title</span>
+            <span>*{getValues("category") == "Report" ? "Page" : "Title"}</span>
             {errors.title && (
                 <p className={style.error}> {errors.title.message}</p>
             )}
@@ -134,9 +137,10 @@ export default function contact() {
           </div>
           <div className={style.inputGroup}>
             <span>*Category</span>
-            <select style={{color: "black", width: "100%", marginRight: "85px"}} id="options" name="category" {...register("category")}>
+            <select style={{color: "black", width: "100%", marginRight: "85px"}} id="options" name="category"  {...register("category")}>
               <option value="Feedback">Feedback</option>
               <option value="Report">Report</option>
+              <option value="Idea">Idea</option>
             </select>
           </div>
           </div>

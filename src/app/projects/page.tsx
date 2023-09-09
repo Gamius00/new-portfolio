@@ -25,6 +25,15 @@ export default function page() {
       link: "https://password-generator-gamius.netlify.app/",
     },
     {
+      name: "SketchIt",
+      image: "/sketchit.png",
+      height: 200,
+      width: 200,
+      link: "https://sketchit1.vercel.app/",
+      warn: "Work in progress",
+      github: "https://github.com/The-Creative-Programming-Group/sketchit-challenge"
+    },
+    {
       name: "First Portfolio",
       image: "/portfolio2.png",
       height: 100,
