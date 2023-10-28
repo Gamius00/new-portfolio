@@ -450,7 +450,7 @@ export default function page() {
           marginTop: "50px",
         }}
       >
-        <div style={{ display: "block" }}>
+        <div className={style.Text} style={{ display: "block" }}>
           <div style={{ display: "flex", justifyContent: "center" }}>
             <h1 style={{ fontSize: "27px" }}>Programming Career</h1>
           </div>
