@@ -13,6 +13,7 @@ import "react-toastify/dist/ReactToastify.css";
 export default function contact() {
   const [isMobile, setIsMobile] = useState(0);
   const toastIdRef = useRef(null);
+  const [categoryInput, setCategoryInput] = useState("Title")
 
   const ContactValidator = z.object({
     email: z.string().email({ message: "Invalid email address." }),
@@ -108,7 +109,7 @@ export default function contact() {
       />
       <div className={style.content}>
         <div style={{ backgroundColor: "#19191F", padding: "19px", borderRadius: "5px", border: "1px solid white"}}>
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form onSubmit={handleSubmit(onSubmit)} onChange={() => {setCategoryInput(getValues("category"))}}>
           <div className={style.pairGroup}>
           <div className={style.inputGroup}>
             <span>*Email</span>
@@ -128,7 +129,7 @@ export default function contact() {
           </div>
           <div className={style.pairGroup}>
           <div className={style.inputGroup}>
-            <span>*{getValues("category") == "Report" ? "Page" : "Title"}</span>
+            <span>*{getValues("category") == "Idea" ? "Short discription" : "Title"}</span>
             {errors.title && (
                 <p className={style.error}> {errors.title.message}</p>
             )}
@@ -137,7 +138,7 @@ export default function contact() {
           </div>
           <div className={style.inputGroup}>
             <span>*Category</span>
-            <select style={{color: "black", width: "100%", marginRight: "85px"}} id="options" name="category"  {...register("category")}>
+            <select onChange={() => {console.log("test")}} style={{color: "black", width: "100%", marginRight: "85px"}} id="options" name="category"  {...register("category")}>
               <option value="Feedback">Feedback</option>
               <option value="Report">Report</option>
               <option value="Idea">Idea</option>
@@ -146,7 +147,7 @@ export default function contact() {
           </div>
           <div className={style.pairGroup}>
           <div className={style.inputGroup}>
-            <span>*Message</span>
+            <span>*{getValues("category") == "Idea" ? "Idea" : "Message"}</span>
             {errors.message && (
                 <p className={style.error}>{errors.message.message}</p>
             )}
