@@ -112,14 +112,14 @@ export default function contact() {
         <form onSubmit={handleSubmit(onSubmit)} onChange={() => {setCategoryInput(getValues("category"))}}>
           <div className={style.pairGroup}>
           <div className={style.inputGroup}>
-            <span>*Email</span>
+            <span><span style={{color: "red"}}>*</span>Email</span>
             {errors.email && (
                 <p className={style.error}>{errors.email.message}</p>
             )}
             <input type="text" name="email" {...register("email")} />
           </div>
           <div className={style.inputGroup}>
-            <span>*Name</span>
+            <span><span style={{color: "red"}}>*</span>Name</span>
             {errors.name && (
                 <p className={style.error}>{errors.name.message}</p>
             )}
@@ -129,7 +129,7 @@ export default function contact() {
           </div>
           <div className={style.pairGroup}>
           <div className={style.inputGroup}>
-            <span>*{getValues("category") == "Idea" ? "Short discription" : "Title"}</span>
+            <span><span style={{color: "red"}}>*</span>{getValues("category") == "Idea" ? "Short discription" : "Title"}</span>
             {errors.title && (
                 <p className={style.error}> {errors.title.message}</p>
             )}
@@ -137,8 +137,8 @@ export default function contact() {
                    {...register("title")} />
           </div>
           <div className={style.inputGroup}>
-            <span>*Category</span>
-            <select onChange={() => {console.log("test")}} style={{color: "black", width: "100%", marginRight: "85px"}} id="options" name="category"  {...register("category")}>
+            <span><span style={{color: "red"}}>*</span>Category</span>
+            <select style={{color: "black", width: "100%", marginRight: "85px"}} id="options" name="category"  {...register("category")}>
               <option value="Feedback">Feedback</option>
               <option value="Report">Report</option>
               <option value="Idea">Idea</option>
@@ -147,7 +147,7 @@ export default function contact() {
           </div>
           <div className={style.pairGroup}>
           <div className={style.inputGroup}>
-            <span>*{getValues("category") == "Idea" ? "Idea" : "Message"}</span>
+            <span><span style={{color: "red"}}>*</span>{getValues("category") == "Idea" ? "Idea" : "Message"}</span>
             {errors.message && (
                 <p className={style.error}>{errors.message.message}</p>
             )}
