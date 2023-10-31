@@ -7,8 +7,7 @@ export default function Impressum() {
       <div>
         <h1>Impressum</h1>
         <p>
-          Angaben gemäß § 5 TMG: <br /> Fabius Schurig <br /> Sidonienstraße. 6{" "}
-          <br /> Radebeul, 01445 <br /> GescheaftlichGamius@gmx.de
+          Fabius Schurig <br /> GescheaftlichGamius@gmx.de
         </p>
 
         <div className={style.haftung}>
