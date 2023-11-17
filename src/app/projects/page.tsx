@@ -53,7 +53,7 @@ export default function page() {
       image: "/weatherio.png",
       height: 200,
       width: 200,
-      link: "https://weather-app-git-frontend-basic-creative-programming-group.vercel.app",
+      link: "https://weatherio1.vercel.app/",
       github:
         "https://github.com/The-Creative-Programming-Group/Weather-App/tree/frontend-basic",
       warn: "Work in progress",
