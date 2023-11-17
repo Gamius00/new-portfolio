@@ -77,7 +77,7 @@ export default function page() {
       name: "ReactJs",
       image: <FaReact className={style.icon} />,
       hover: "#00b6ff",
-      level: 7,
+      level: 8,
     },
     {
       name: "Next.js",
