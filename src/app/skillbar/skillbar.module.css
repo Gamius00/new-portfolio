@@ -4,10 +4,6 @@
   flex-wrap: wrap;
 }
 
-@media screen and (max-width: 810px){
-  .Text {
-    width: 80%;
-  }}
 
 .elements {
   padding: 20px;
@@ -38,4 +34,41 @@
   display: flex;
   justify-content: center;
   font-size: x-large;
+}
+
+.Experience {
+  background-color: #19191F;
+  padding: 20px;
+  border-radius: 5px;
+  border: 1px solid #FF0000;
+  display: flex;
+  width: 370px;
+  margin-top: 50px;
+  margin-left: 25%;
+}
+
+@media screen and (max-width: 600px) {
+  .Experience {
+    margin-left: 15%;
+
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .Experience {
+    margin-left: 10%;
+
+  }
+}
+
+@media screen and (max-width: 429px) {
+  .Experience {
+    margin-left: 3%;
+
+  }
+}
+
+.Experience p {
+  margin-left: 30px;
+  margin-top: 6px;
 }

@@ -24,6 +24,7 @@ import { useEffect, useState } from "react";
 import { SiAndroidstudio } from "react-icons/si";
 import { FiFigma } from "react-icons/fi";
 import { IoLogoVercel } from "react-icons/io5";
+import Image from "next/image";
 
 export default function page() {
   interface Array {
@@ -31,6 +32,11 @@ export default function page() {
     image: JSX.Element;
     hover: string;
     level?: number;
+  }
+
+  interface Experience {
+    name: string;
+    image: string;
   }
 
   const skill: Array[] = [
@@ -143,6 +149,13 @@ export default function page() {
       level: 7,
     },
   ];
+
+  const experience: Experience[] = [
+      {
+    name: "Communardo Software GmbH",
+    image: "/communardo.jpg"
+      },
+  ]
 
   const [color2, setColor] = useState(null);
   const [color3, setColor1] = useState(null);
@@ -450,6 +463,18 @@ export default function page() {
           marginTop: "50px",
         }}
       >
+        <div style={{ display: "block"}}>
+        <div className={style.Text} style={{ display: "block", marginBottom: "50px" }}>
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <h1 style={{ fontSize: "27px" }}>Experience</h1>
+          </div>
+            {experience.map((object, index, array) => (
+              <div className={style.Experience}>
+                <Image style={{ borderRadius: "20px"}} src={object.image} width={36} height={36} alt={"Test"}></Image>
+                <p>{object.name}</p>
+              </div>
+            ))}
+        </div>
         <div className={style.Text} style={{ display: "block" }}>
           <div style={{ display: "flex", justifyContent: "center" }}>
             <h1 style={{ fontSize: "27px" }}>Programming Career</h1>
@@ -478,6 +503,7 @@ export default function page() {
             orientation, please keep in mind that they serve as a rough gauge of
             my abilities.
           </p>
+        </div>
         </div>
       </div>
     </div>
