@@ -155,6 +155,10 @@ export default function page() {
     name: "Communardo Software GmbH",
     image: "/communardo.jpg"
       },
+    {
+      name: "Telekom MMS ",
+      image: "/Telekom.png"
+    },
   ]
 
   const [color2, setColor] = useState(null);
