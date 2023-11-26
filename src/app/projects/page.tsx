@@ -17,6 +17,33 @@ interface IProjects {
 
 export default function page() {
   const projects: IProjects[] = [
+
+    {
+      name: "Weather.io",
+      image: "/weatherio.png",
+      height: 200,
+      width: 200,
+      link: "https://weatherio1.vercel.app/",
+      github:
+          "https://github.com/The-Creative-Programming-Group/Weather-App/tree/frontend-basic",
+      warn: "Work in progress",
+    },
+    {
+      name: "Calendar",
+      image: "/calendar.png",
+      height: 200,
+      width: 200,
+      warn: "Work in progress",
+      link: "https://fabiusfeuerwehrmann.atlassian.net/wiki/spaces/~71202026dab641e5834bedbb05927f57ee097b/pages/458753/Calendar-App",
+    },
+    {
+      name: "First Portfolio",
+      image: "/portfolio2.png",
+      height: 100,
+      width: 200,
+      link: "https://wonderful-melomakarona-9c27ec.netlify.app/",
+      github: "https://github.com/Gamius00/Portfolio",
+    },
     {
       name: "Passwort-Generator",
       image: "/passwordg.png",
@@ -30,16 +57,7 @@ export default function page() {
       height: 200,
       width: 200,
       link: "https://sketchit1.vercel.app/",
-      warn: "Work in progress",
       github: "https://github.com/The-Creative-Programming-Group/sketchit-challenge"
-    },
-    {
-      name: "First Portfolio",
-      image: "/portfolio2.png",
-      height: 100,
-      width: 200,
-      link: "https://wonderful-melomakarona-9c27ec.netlify.app/",
-      github: "https://github.com/Gamius00/Portfolio",
     },
     {
       name: "Discord Bot",
@@ -47,29 +65,6 @@ export default function page() {
       height: 200,
       width: 200,
       github: "https://github.com/Gamius00/discordbot",
-    },
-    {
-      name: "Weather.io",
-      image: "/weatherio.png",
-      height: 200,
-      width: 200,
-      link: "https://weatherio1.vercel.app/",
-      github:
-        "https://github.com/The-Creative-Programming-Group/Weather-App/tree/frontend-basic",
-      warn: "Work in progress",
-    },
-    {
-      name: "Delizioso",
-      image: "/Delizioso.png",
-      height: 200,
-      width: 200,
-      warn: "Work in progress",
-    },
-    {
-      name: "Kotlin App",
-      image: "/kotlin-app.png",
-      height: 0,
-      width: 200,
     },
   ];
 
