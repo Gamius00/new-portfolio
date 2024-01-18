@@ -5,20 +5,20 @@ import style from "./home.module.css";
 import { TypeAnimation } from "react-type-animation";
 
 export default function Home() {
+  const date = new Date();
 
-    const date = new Date();
-
-    const Year = date.getFullYear();
-    const Month = date.getMonth() + 1;
-    const Day = date.getDate();
-    const age = Month > 1 || (Month === 1 && Day > 2) ? Year - 2009 : Year - 2009 - 1;
+  const Year = date.getFullYear();
+  const Month = date.getMonth() + 1;
+  const Day = date.getDate();
+  const age =
+    Month > 1 || (Month === 1 && Day > 2) ? Year - 2009 : Year - 2009 - 1;
 
   return (
     <>
       <div className={style.hello}>
         <div className={style.content}>
           <p className={style.fabiustext}>Hello there 👋</p>
-          <p className={style.fabiustext}>I'm Fabius </p>
+          <p className={style.fabiustext}>I&apos;m Fabius </p>
           <p className={style.intern}>
             <span className={style.internText}>
               Software Engineering Student for
@@ -74,25 +74,26 @@ export default function Home() {
           </p>
         </div>
       </div>
-        <div className={style.Text}>
-            <div className={style.TextHead}>
-                <h1>Hobbies</h1>
-            </div>
-            <div className={style.TextContent}>
-                <p>
-                    Problem-solving and crafting from scratch truly resonate with me. Additionally, <br/>
-                    the strategic challenges of chess captivate me.
-                    The intricate moves and mental agility required make it truly rewarding.
-                    <br/>
-                    <br/>
-                    Participating in chess tournaments is a must for me, where I compete with fellow players,
-                    finding enrichment in every match. These hobbies,
-                    though distinct, align with my love for intellectual challenges and creative solutions.
-                    Debugging code or planning a chess move both offer a truly gratifying sense of accomplishment.
-
-                </p>
-            </div>
+      <div className={style.Text}>
+        <div className={style.TextHead}>
+          <h1>Hobbies</h1>
         </div>
+        <div className={style.TextContent}>
+          <p>
+            Problem-solving and crafting from scratch truly resonate with me.
+            Additionally, <br />
+            the strategic challenges of chess captivate me. The intricate moves
+            and mental agility required make it truly rewarding.
+            <br />
+            <br />
+            Participating in chess tournaments is a must for me, where I compete
+            with fellow players, finding enrichment in every match. These
+            hobbies, though distinct, align with my love for intellectual
+            challenges and creative solutions. Debugging code or planning a
+            chess move both offer a truly gratifying sense of accomplishment.
+          </p>
+        </div>
+      </div>
     </>
   );
 }

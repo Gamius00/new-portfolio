@@ -1,15 +1,16 @@
-import { NextResponse, NextRequest } from "next/server";
+import { type NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 import WelcomeEmail from "../../../emails";
 import rateLimit from "next-rate-limit";
 import { z } from "zod";
+import { env } from "~/env.mjs";
 
 const limiter = rateLimit({
   interval: 60 * 1000, // 1 minute
   uniqueTokenPerInterval: 5, // Max 5 request per interval
 });
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = new Resend(env.RESEND_API_KEY);
 
 const ContactValidator = z.object({
   email: z.string().email({ message: "Invalid email address." }),
@@ -26,24 +27,21 @@ const ContactValidator = z.object({
       message: "Your message must be less than 2000 characters long",
     }),
 });
-
-type Inputs = z.infer<typeof ContactValidator>;
-
 export const POST = async (req: NextRequest) => {
   try {
-    const body: Inputs = await req.json();
-    const { email, name, title, category, message } = body;
-    ContactValidator.parse(body);
+    const body = await req.json();
+    const parsedBody = ContactValidator.parse(body);
+    const { email, name, title, category, message } = parsedBody;
     const headers = limiter.checkNext(req, 10);
 
-    await resend.sendEmail({
+    await resend.emails.send({
       from: "onboarding@resend.dev",
       to: "gescheaftlichgamius@gmx.de",
       subject: title,
       react: WelcomeEmail({
         emailAdressOfSender: email,
         nameOfSender: name,
-        category: category,
+        category: category ? category : "No category given",
         message: message,
       }),
     });
@@ -54,17 +52,11 @@ export const POST = async (req: NextRequest) => {
         limit: headers.get("X-RateLimit-Limit"),
         remaining: headers.get("X-RateLimit-Remaining"),
       },
-      { headers }
+      { headers },
     );
   } catch (e) {
     if (e instanceof z.ZodError) {
       return NextResponse.json({ error: e.message }, { status: 422 });
-    }
-    if (e.statusCode === 422) {
-      return NextResponse.json(
-        { error: "Missing required field" },
-        { status: 422 }
-      );
     }
     return NextResponse.json({ error: "Rate limit exceeded" }, { status: 429 });
   }

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef } from "react";
+import React from "react";
 import style from "./projects.module.css";
 import Image from "next/image";
 import { AiOutlineGithub } from "react-icons/ai";
@@ -17,7 +17,6 @@ interface IProjects {
 
 export default function page() {
   const projects: IProjects[] = [
-
     {
       name: "Weather.io",
       image: "/weatherio.png",
@@ -25,7 +24,7 @@ export default function page() {
       width: 200,
       link: "https://weatherio1.vercel.app/",
       github:
-          "https://github.com/The-Creative-Programming-Group/Weather-App/tree/frontend-basic",
+        "https://github.com/The-Creative-Programming-Group/Weather-App/tree/frontend-basic",
       warn: "Work in progress",
     },
     {
@@ -57,7 +56,8 @@ export default function page() {
       height: 200,
       width: 200,
       link: "https://sketchit1.vercel.app/",
-      github: "https://github.com/The-Creative-Programming-Group/sketchit-challenge"
+      github:
+        "https://github.com/The-Creative-Programming-Group/sketchit-challenge",
     },
     {
       name: "Discord Bot",
@@ -72,9 +72,13 @@ export default function page() {
     <>
       <div className={style.content}>
         {" "}
-        {projects.map((item) => {
+        {projects.map((item, index) => {
           return (
-            <div style={{ backgroundColor: "#19191F" }} className={style.items}>
+            <div
+              key={index}
+              style={{ backgroundColor: "#19191F" }}
+              className={style.items}
+            >
               <p>{item.name}</p>
               <Image
                 className={style.Image}
@@ -84,22 +88,22 @@ export default function page() {
                 height={item.height}
               />
               {item.link ? (
-                  <div className={style.buttonDiv}>
-                <button
-                  onClick={() => {
-                    location.href = item.link;
-                  }}
-                  className={style.buttonTry}
-                >
-                  Try
-                </button>
-                  </div>
+                <div className={style.buttonDiv}>
+                  <button
+                    onClick={() => {
+                      location.href = item.link!;
+                    }}
+                    className={style.buttonTry}
+                  >
+                    Try
+                  </button>
+                </div>
               ) : null}
               {item.github ? (
                 <div className={style.github}>
                   <button
                     onClick={() => {
-                      location.href = item.github;
+                      location.href = item.github!;
                     }}
                     className={style.githubButton}
                   >
