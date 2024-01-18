@@ -36,3 +36,7 @@ next-env.d.ts
 
 #react email
 /.react-email
+
+# ENV Files
+.env
+.env.local
