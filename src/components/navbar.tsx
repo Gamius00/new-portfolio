@@ -1,12 +1,12 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import style from "./navbar.module.css";
 import Image from "next/image";
 import Link from "next/link";
-import { AiOutlineGithub, AiFillHome } from "react-icons/ai";
-import { BsLinkedin, BsDiscord, BsFillPersonFill } from "react-icons/bs";
-import { HiMenuAlt3, HiFolderOpen, HiMail } from "react-icons/hi";
+import { AiFillHome, AiOutlineGithub } from "react-icons/ai";
+import { BsDiscord, BsFillPersonFill, BsLinkedin } from "react-icons/bs";
+import { HiFolderOpen, HiMail, HiMenuAlt3 } from "react-icons/hi";
 import { ImCross } from "react-icons/im";
 
 export default function Navbar() {
@@ -20,12 +20,12 @@ export default function Navbar() {
 
   useEffect(() => {
     const Items = document.getElementById("Items");
-    const overlay = document.getElementById("overlay");
-
-    if (!navBarclicked) {
-      Items.style.height = "0px";
-    } else {
-      Items.style.height = "264px";
+    if (Items) {
+      if (!navBarclicked) {
+        Items.style.height = "0px";
+      } else {
+        Items.style.height = "264px";
+      }
     }
   });
 
@@ -125,7 +125,7 @@ export default function Navbar() {
         />
       </div>
 
-      <div className={style.OverLay} id="overlay">
+      <div className={style.OverLay}>
         <div className={style.IconDiv}>
           <h1>FS</h1>
           <span onClick={navBarclick}>
@@ -141,6 +141,7 @@ export default function Navbar() {
             {pages.map((item) => {
               return (
                 <div
+                  key={item.title}
                   onClick={() => {
                     location.href = item.link;
                   }}

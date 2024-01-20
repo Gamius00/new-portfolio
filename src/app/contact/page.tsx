@@ -1,19 +1,19 @@
 "use client";
 
-import React, { useRef, useState, useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import style from "./contact.module.css";
-import { useForm, SubmitHandler } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
-import { ToastContainer, toast } from "react-toastify";
+import { type Id, toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-export default function contact() {
+export default function Contact() {
   const [isMobile, setIsMobile] = useState(0);
-  const toastIdRef = useRef(null);
-  const [categoryInput, setCategoryInput] = useState("Title")
+  const toastIdRef = useRef<Id>();
+  const [, setCategoryInput] = useState("Title");
 
   const ContactValidator = z.object({
     email: z.string().email({ message: "Invalid email address." }),
@@ -50,10 +50,21 @@ export default function contact() {
     },
   });
 
+  type ApiResponse =
+    | {
+        status: "OK";
+        limit: string | null;
+        remaining: string | null;
+      }
+    | {
+        error: string;
+        status: number;
+      };
+
   const { mutate: submitHandler } = useMutation({
     mutationFn: async (data: Inputs) => {
       try {
-        const response = await axios.post("/api/email", data);
+        const response = await axios.post<ApiResponse>("/api/email", data);
         return response.data;
       } catch (error) {
         console.error(error);
@@ -66,14 +77,11 @@ export default function contact() {
       console.error(error);
     },
   });
-
-  const toastId = React.useRef(null);
-
   useEffect(() => {
-    if (isMobile != 0)
+    if (isMobile != 0 && toastIdRef.current)
       toast.update(toastIdRef.current, {
         render: "Email sent successfully!",
-        type: toast.TYPE.SUCCESS,
+        type: "success",
         autoClose: 5000,
         isLoading: false,
       });
@@ -92,7 +100,7 @@ export default function contact() {
     reset();
   };
 
-    return (
+  return (
     <>
       <ToastContainer
         position="top-center"
@@ -108,61 +116,92 @@ export default function contact() {
         theme="dark"
       />
       <div className={style.content}>
-        <div style={{ backgroundColor: "#19191F", padding: "19px", borderRadius: "5px", border: "1px solid white"}}>
-        <form onSubmit={handleSubmit(onSubmit)} onChange={() => {setCategoryInput(getValues("category"))}}>
-          <div className={style.pairGroup}>
-          <div className={style.inputGroup}>
-            <span><span style={{color: "red"}}>*</span>Email</span>
-            {errors.email && (
-                <p className={style.error}>{errors.email.message}</p>
-            )}
-            <input type="text" name="email" {...register("email")} />
-          </div>
-          <div className={style.inputGroup}>
-            <span><span style={{color: "red"}}>*</span>Name</span>
-            {errors.name && (
-                <p className={style.error}>{errors.name.message}</p>
-            )}
-            <input type="text"    name="name"
-                   {...register("name")}/>
-          </div>
-          </div>
-          <div className={style.pairGroup}>
-          <div className={style.inputGroup}>
-            <span><span style={{color: "red"}}>*</span>{getValues("category") == "Idea" ? "Short discription" : "Title"}</span>
-            {errors.title && (
-                <p className={style.error}> {errors.title.message}</p>
-            )}
-            <input type="text"     name="title"
-                   {...register("title")} />
-          </div>
-          <div className={style.inputGroup}>
-            <span><span style={{color: "red"}}>*</span>Category</span>
-            <select style={{color: "black", width: "100%", marginRight: "85px"}} id="options" name="category"  {...register("category")}>
-              <option value="Feedback">Feedback</option>
-              <option value="Report">Report</option>
-              <option value="Idea">Idea</option>
-            </select>
-          </div>
-          </div>
-          <div className={style.pairGroup}>
-          <div className={style.inputGroup}>
-            <span><span style={{color: "red"}}>*</span>{getValues("category") == "Idea" ? "Idea" : "Message"}</span>
-            {errors.message && (
-                <p className={style.error}>{errors.message.message}</p>
-            )}
-            <textarea style={{width: "100%", marginRight: "280px"}}    {...register("message")}></textarea>
-          </div>
-            <input
+        <div
+          style={{
+            backgroundColor: "#19191F",
+            padding: "19px",
+            borderRadius: "5px",
+            border: "1px solid white",
+          }}
+        >
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            onChange={() => {
+              setCategoryInput(getValues("category") ?? "");
+            }}
+          >
+            <div className={style.pairGroup}>
+              <div className={style.inputGroup}>
+                <span>
+                  <span style={{ color: "red" }}>*</span>Email
+                </span>
+                {errors.email && (
+                  <p className={style.error}>{errors.email.message}</p>
+                )}
+                <input type="text" {...register("email")} />
+              </div>
+              <div className={style.inputGroup}>
+                <span>
+                  <span style={{ color: "red" }}>*</span>Name
+                </span>
+                {errors.name && (
+                  <p className={style.error}>{errors.name.message}</p>
+                )}
+                <input type="text" {...register("name")} />
+              </div>
+            </div>
+            <div className={style.pairGroup}>
+              <div className={style.inputGroup}>
+                <span>
+                  <span style={{ color: "red" }}>*</span>
+                  {getValues("category") == "Idea"
+                    ? "Short discription"
+                    : "Title"}
+                </span>
+                {errors.title && (
+                  <p className={style.error}> {errors.title.message}</p>
+                )}
+                <input type="text" {...register("title")} />
+              </div>
+              <div className={style.inputGroup}>
+                <span>
+                  <span style={{ color: "red" }}>*</span>Category
+                </span>
+                <select
+                  style={{ color: "black", width: "100%", marginRight: "85px" }}
+                  id="options"
+                  {...register("category")}
+                >
+                  <option value="Feedback">Feedback</option>
+                  <option value="Report">Report</option>
+                  <option value="Idea">Idea</option>
+                </select>
+              </div>
+            </div>
+            <div className={style.pairGroup}>
+              <div className={style.inputGroup}>
+                <span>
+                  <span style={{ color: "red" }}>*</span>
+                  {getValues("category") == "Idea" ? "Idea" : "Message"}
+                </span>
+                {errors.message && (
+                  <p className={style.error}>{errors.message.message}</p>
+                )}
+                <textarea
+                  style={{ width: "100%", marginRight: "280px" }}
+                  {...register("message")}
+                ></textarea>
+              </div>
+              <input
                 style={{ display: "none" }}
                 {...register("testMessage")}
-            ></input>
-          </div>
-          <div className={style.button}>
-            <button type="submit">Submit</button>
-          </div>
-        </form>
-      </div>
+              ></input>
+            </div>
+            <div className={style.button}>
+              <button type="submit">Submit</button>
+            </div>
+          </form>
+        </div>
       </div>
     </>
   );

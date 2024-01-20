@@ -1,32 +1,31 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import style from "./skillbar.module.css";
 import { DiHtml5 } from "react-icons/di";
 import Link from "next/link";
 import {
-  BiLogoJavascript,
-  BiLogoTypescript,
   BiLogoCss3,
+  BiLogoJavascript,
   BiLogoPython,
+  BiLogoTypescript,
 } from "react-icons/bi";
 import { BsGithub } from "react-icons/bs";
-import { FaReact, FaCircle } from "react-icons/fa";
+import { FaCircle, FaReact } from "react-icons/fa";
 import { TbBrandNextjs, TbBrandVscode } from "react-icons/tb";
 import {
+  SiAndroidstudio,
+  SiIntellijidea,
   SiKotlin,
-  SiWindows11,
   SiPycharm,
   SiTailwindcss,
-  SiIntellijidea
+  SiWindows11,
 } from "react-icons/si";
-import { useEffect, useState } from "react";
-import { SiAndroidstudio } from "react-icons/si";
 import { FiFigma } from "react-icons/fi";
 import { IoLogoVercel } from "react-icons/io5";
 import Image from "next/image";
 
-export default function page() {
+export default function SkillBarPage() {
   interface Array {
     name: string;
     image: JSX.Element;
@@ -151,21 +150,21 @@ export default function page() {
   ];
 
   const experience: Experience[] = [
-      {
-    name: "Communardo Software GmbH",
-    image: "/communardo.jpg"
-      },
+    {
+      name: "Communardo Software GmbH",
+      image: "/communardo.jpg",
+    },
     {
       name: "Telekom MMS ",
-      image: "/Telekom.png"
+      image: "/Telekom.png",
     },
-  ]
+  ];
 
-  const [color2, setColor] = useState(null);
-  const [color3, setColor1] = useState(null);
-  const [color4, setColor2] = useState(null);
+  const [color2, setColor] = useState<number | null>();
+  const [color3, setColor1] = useState<number | null>();
+  const [color4, setColor2] = useState<number | null>();
 
-  const renderFaCircles = (level, index, color) => {
+  const renderFaCircles = (level: number, index: number, color: string) => {
     const maxLevel = 10;
     const circles = [];
 
@@ -179,7 +178,7 @@ export default function page() {
             color: color2 === index ? `${color}` : "#9D9D9D",
             transition: "color 0.3s",
           }}
-        />
+        />,
       );
     }
 
@@ -192,14 +191,14 @@ export default function page() {
             height: "15px",
             width: "15px",
           }}
-        />
+        />,
       );
     }
 
     return circles;
   };
 
-  const renderFaCircles2 = (level, index, color) => {
+  const renderFaCircles2 = (level: number, index: number, color: string) => {
     const maxLevel = 10;
     const circles = [];
 
@@ -213,7 +212,7 @@ export default function page() {
             color: color3 === index ? `${color}` : "#9D9D9D",
             transition: "color 0.3s",
           }}
-        />
+        />,
       );
     }
 
@@ -226,14 +225,14 @@ export default function page() {
             height: "15px",
             width: "15px",
           }}
-        />
+        />,
       );
     }
 
     return circles;
   };
 
-  const renderFaCircles3 = (level, index, color) => {
+  const renderFaCircles3 = (level: number, index: number, color: string) => {
     const maxLevel = 10;
     const circles = [];
 
@@ -247,7 +246,7 @@ export default function page() {
             color: color4 === index ? `${color}` : "#9D9D9D",
             transition: "color 0.3s",
           }}
-        />
+        />,
       );
     }
 
@@ -260,16 +259,22 @@ export default function page() {
             height: "15px",
             width: "15px",
           }}
-        />
+        />,
       );
     }
 
     return circles;
   };
 
-  const [hoveredElementskill, setHoveredElementskill] = useState(null);
-  const [hoveredElementframework, setHoveredElementframework] = useState(null);
-  const [hoveredElementtools, setHoveredElementtools] = useState(null);
+  const [hoveredElementskill, setHoveredElementskill] = useState<
+    number | null
+  >();
+  const [hoveredElementframework, setHoveredElementframework] = useState<
+    number | null
+  >();
+  const [hoveredElementtools, setHoveredElementtools] = useState<
+    number | null
+  >();
 
   return (
     <div className={style.all}>
@@ -277,6 +282,7 @@ export default function page() {
       <div style={{}} id="Test" className={style.content}>
         {skill.map((listelement, index) => (
           <div
+            key={index}
             className={style.elements}
             style={{
               border:
@@ -328,31 +334,34 @@ export default function page() {
               >
                 Confidence Level
               </p>
-              <div style={{ display: "flex", justifyContent: "center" }}>
-                {renderFaCircles(listelement.level, index, listelement.hover)}
-              </div>
+              {listelement.level && (
+                <div style={{ display: "flex", justifyContent: "center" }}>
+                  {renderFaCircles(listelement.level, index, listelement.hover)}
+                </div>
+              )}
             </div>
           </div>
         ))}
       </div>
       <div className={style.header}>Frameworks</div>
       <div id="Test" className={style.content}>
-        {framework.map((listelement, index2) => (
+        {framework.map((listelement, index) => (
           <div
+            key={index}
             className={style.elements}
             style={{
               border:
-                hoveredElementframework === index2
+                hoveredElementframework === index
                   ? `1px solid ${listelement.hover}`
                   : "1px solid white",
               color:
-                hoveredElementframework === index2
+                hoveredElementframework === index
                   ? `${listelement.hover}`
                   : "white",
             }}
             onMouseOver={() => {
-              setHoveredElementframework(index2);
-              setColor1(index2);
+              setHoveredElementframework(index);
+              setColor1(index);
             }}
             onMouseOut={() => {
               setHoveredElementframework(null);
@@ -390,9 +399,15 @@ export default function page() {
               >
                 Confidence Level
               </p>
-              <div style={{ display: "flex", justifyContent: "center" }}>
-                {renderFaCircles2(listelement.level, index2, listelement.hover)}
-              </div>
+              {listelement.level && (
+                <div style={{ display: "flex", justifyContent: "center" }}>
+                  {renderFaCircles2(
+                    listelement.level,
+                    index,
+                    listelement.hover,
+                  )}
+                </div>
+              )}
             </div>
           </div>
         ))}
@@ -401,6 +416,7 @@ export default function page() {
       <div style={{}} id="Test" className={style.content}>
         {tools.map((listelement, index) => (
           <div
+            key={index}
             className={style.elements}
             style={{
               border:
@@ -452,9 +468,15 @@ export default function page() {
               >
                 Confidence Level
               </p>
-              <div style={{ display: "flex", justifyContent: "center" }}>
-                {renderFaCircles3(listelement.level, index, listelement.hover)}
-              </div>
+              {listelement.level && (
+                <div style={{ display: "flex", justifyContent: "center" }}>
+                  {renderFaCircles3(
+                    listelement.level,
+                    index,
+                    listelement.hover,
+                  )}
+                </div>
+              )}
             </div>
           </div>
         ))}
@@ -467,47 +489,57 @@ export default function page() {
           marginTop: "50px",
         }}
       >
-        <div style={{ display: "block"}}>
-        <div className={style.Text} style={{ display: "block", marginBottom: "50px" }}>
-          <div style={{ display: "flex", justifyContent: "center" }}>
-            <h1 style={{ fontSize: "27px" }}>Experience</h1>
-          </div>
-            {experience.map((object, index, array) => (
-              <div className={style.Experience}>
-                <Image style={{ borderRadius: "20px"}} src={object.image} width={36} height={36} alt={"Test"}></Image>
+        <div style={{ display: "block" }}>
+          <div
+            className={style.Text}
+            style={{ display: "block", marginBottom: "50px" }}
+          >
+            <div style={{ display: "flex", justifyContent: "center" }}>
+              <h1 style={{ fontSize: "27px" }}>Experience</h1>
+            </div>
+            {experience.map((object, index) => (
+              <div className={style.Experience} key={index}>
+                <Image
+                  style={{ borderRadius: "20px" }}
+                  src={object.image}
+                  width={36}
+                  height={36}
+                  alt={"Test"}
+                ></Image>
                 <p>{object.name}</p>
               </div>
             ))}
-        </div>
-        <div className={style.Text} style={{ display: "block" }}>
-          <div style={{ display: "flex", justifyContent: "center" }}>
-            <h1 style={{ fontSize: "27px" }}>Programming Career</h1>
           </div>
-          <p
-            style={{
-              fontSize: "18px",
-              margin: "20px",
-              marginRight: "30px",
-              marginLeft: "30px",
-            }}
-          >
-            Welcome to my Skills page, where I proudly present you my
-            programming skills. <br /> These skill assessments were not
-            arbitrarily selected <br />
-            rather, they have been carefully evaluated by Jakob Rössner, <br />{" "}
-            an programmer, who accompanied me on my Programmer Career <br />
-            for several months. You can find Jakob's portfolio at <br />
-            <Link
-              href="https://www.roessner.tech"
-              style={{ color: "#a81a1a", textDecoration: "underline" }}
+          <div className={style.Text} style={{ display: "block" }}>
+            <div style={{ display: "flex", justifyContent: "center" }}>
+              <h1 style={{ fontSize: "27px" }}>Programming Career</h1>
+            </div>
+            <p
+              style={{
+                fontSize: "18px",
+                margin: "20px",
+                marginRight: "30px",
+                marginLeft: "30px",
+              }}
             >
-              https://www.roessner.tech
-            </Link>
-            . While these evaluations offer a valuable <br />
-            orientation, please keep in mind that they serve as a rough gauge of
-            my abilities.
-          </p>
-        </div>
+              Welcome to my Skills page, where I proudly present you my
+              programming skills. <br /> These skill assessments were not
+              arbitrarily selected <br />
+              rather, they have been carefully evaluated by Jakob Rössner,{" "}
+              <br /> an programmer, who accompanied me on my Programmer Career{" "}
+              <br />
+              for several months. You can find Jakob&apos;s portfolio at <br />
+              <Link
+                href="https://www.roessner.tech"
+                style={{ color: "#a81a1a", textDecoration: "underline" }}
+              >
+                https://www.roessner.tech
+              </Link>
+              . While these evaluations offer a valuable <br />
+              orientation, please keep in mind that they serve as a rough gauge
+              of my abilities.
+            </p>
+          </div>
         </div>
       </div>
     </div>
