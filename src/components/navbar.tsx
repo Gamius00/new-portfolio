@@ -99,6 +99,9 @@ export default function Navbar() {
           <Image
             alt="Hits"
             src="https://hits.sh/www.schurig.tech.svg?style=for-the-badge&label=views&extraCount=1000&color=a81a1a&labelColor=1b1b1b"
+            width={140}
+            height={140}
+            unoptimized
           />
         </Link>
         <AiOutlineGithub
