@@ -34,11 +34,17 @@
 }
 
 .Image {
-  margin-left: 45px;
+  position: absolute;
+  margin-top: -237px;
+  margin-left: 67px;
+
+}
+
+.Laptop {
+  margin-left: 20px;
   margin-bottom: 30px;
   border-radius: 5px;
   aspect-ratio: 13/15;
-  border: 2px solid black;
 }
 
 .buttonDiv {
