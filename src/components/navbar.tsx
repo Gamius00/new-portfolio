@@ -96,7 +96,7 @@ export default function Navbar() {
           </div>
         </Link>
         <Link className={style.views} href={""}>
-          <img
+          <Image
             alt="Hits"
             src="https://hits.sh/www.schurig.tech.svg?style=for-the-badge&label=views&extraCount=1000&color=a81a1a&labelColor=1b1b1b"
           />

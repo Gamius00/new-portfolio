@@ -4,8 +4,6 @@ import {
   Head,
   Heading,
   Html,
-  Img,
-  Link,
   Preview,
   Text,
 } from "@react-email/components";
@@ -61,38 +59,10 @@ const h1 = {
   padding: "0",
 };
 
-const link = {
-  color: "#2754C5",
-  fontFamily:
-    "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif",
-  fontSize: "14px",
-  textDecoration: "underline",
-};
-
 const text = {
   color: "#333",
   fontFamily:
     "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif",
   fontSize: "14px",
   margin: "24px 0",
-};
-
-const footer = {
-  color: "blueviolet",
-  fontFamily:
-    "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif",
-  fontSize: "12px",
-  lineHeight: "22px",
-  marginTop: "12px",
-  marginBottom: "24px",
-};
-
-const code = {
-  display: "inline-block",
-  padding: "16px 4.5%",
-  width: "90.5%",
-  backgroundColor: "#f4f4f4",
-  borderRadius: "5px",
-  border: "1px solid #eee",
-  color: "#333",
 };

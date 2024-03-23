@@ -13,8 +13,7 @@ import {
 import { BsGithub } from "react-icons/bs";
 import { FaCircle, FaReact } from "react-icons/fa";
 import { TbBrandNextjs, TbBrandVscode } from "react-icons/tb";
-import Popup from 'reactjs-popup';
-import 'reactjs-popup/dist/index.css';
+import "reactjs-popup/dist/index.css";
 import {
   SiAndroidstudio,
   SiIntellijidea,
@@ -166,11 +165,7 @@ export default function SkillBarPage() {
   const [color3, setColor1] = useState<number | null>();
   const [color4, setColor2] = useState<number | null>();
 
-  const experienceClick = (object: any) => {
-    console.log(object)
-  }
-
-    const renderFaCircles = (level: number, index: number, color: string) => {
+  const renderFaCircles = (level: number, index: number, color: string) => {
     const maxLevel = 10;
     const circles = [];
 
@@ -495,14 +490,23 @@ export default function SkillBarPage() {
           marginTop: "50px",
         }}
       >
-        <div style={{ display: "block"}}>
-        <div className={style.Text} style={{ display: "block", marginBottom: "50px" }}>
-          <div style={{ display: "flex", justifyContent: "center" }}>
-            <h1 style={{ fontSize: "27px" }}>Experience</h1>
-          </div>
-            {experience.map((object, index, array) => (
-              <div onClick={() => (experienceClick(object.name))} className={style.Experience}>
-                <Image style={{ borderRadius: "20px"}} src={object.image} width={36} height={36} alt={"Test"}></Image>
+        <div style={{ display: "block" }}>
+          <div
+            className={style.Text}
+            style={{ display: "block", marginBottom: "50px" }}
+          >
+            <div style={{ display: "flex", justifyContent: "center" }}>
+              <h1 style={{ fontSize: "27px" }}>Experience</h1>
+            </div>
+            {experience.map((object, index) => (
+              <div key={index} className={style.Experience}>
+                <Image
+                  style={{ borderRadius: "20px" }}
+                  src={object.image}
+                  width={36}
+                  height={36}
+                  alt={"Test"}
+                ></Image>
                 <p>{object.name}</p>
               </div>
             ))}
