@@ -8,7 +8,6 @@ import { AiOutlineGithub } from "react-icons/ai";
 interface IProjects {
   name: string;
   image: string;
-  laptop: string;
   height: number;
   width: number;
   link?: string;
@@ -20,7 +19,6 @@ export default function page() {
   const projects: IProjects[] = [
     {
       name: "Weather.io",
-      laptop: "/laptop.svg",
       image: "/weatherPage.png",
       height: 260,
       width: 260,
@@ -30,8 +28,15 @@ export default function page() {
       warn: "Work in progress",
     },
     {
+      name: "Chat.io",
+      image: "/chatIO.png",
+      height: 260,
+      width: 260,
+      github: "https://github.com/FleetAdmiralJakob/chat-io",
+      warn: "Work in progress",
+    },
+    {
       name: "Calendar",
-      laptop: "/laptop.svg",
       image: "/atlassianCal.png",
       height: 260,
       width: 260,
@@ -40,7 +45,6 @@ export default function page() {
     },
     {
       name: "First Portfolio",
-      laptop: "/laptop.svg",
       image: "/oldportfolio.png",
       height: 260,
       width: 260,
@@ -49,7 +53,6 @@ export default function page() {
     },
     {
       name: "Passwort-Generator",
-      laptop: "/laptop.svg",
       image: "/pwgenerator.png",
       height: 260,
       width: 260,
@@ -57,7 +60,6 @@ export default function page() {
     },
     {
       name: "Discord Bot",
-      laptop: "/laptop.svg",
       image: "/bot.png",
       height: 260,
       width: 260,
@@ -80,16 +82,16 @@ export default function page() {
               <Image
                 className={style.Laptop}
                 alt={item.name}
-                src={item.laptop}
+                src={"/laptop.svg"}
                 width={item.width}
                 height={item.height}
               />
               <Image
-                  className={style.Image}
-                  alt={item.name}
-                  src={item.image}
-                  width={170}
-                  height={165}
+                className={style.Image}
+                alt={item.name}
+                src={item.image}
+                width={170}
+                height={165}
               />
               {item.link ? (
                 <div className={style.buttonDiv}>
