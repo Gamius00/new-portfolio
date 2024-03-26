@@ -4,7 +4,7 @@ import Navbar from "../components/navbar";
 import Providers from "./providers";
 import { Analytics } from "@vercel/analytics/react";
 import Link from "next/link";
-import { BiLinkExternal } from "react-icons/bi"
+import { BiLinkExternal } from "react-icons/bi";
 
 const inter = Raleway({ subsets: ["latin-ext"], weight: ["500"] });
 const date = new Date();
@@ -12,16 +12,25 @@ const date = new Date();
 const Year = date.getFullYear();
 const Month = date.getMonth() + 1;
 const Day = date.getDate();
-const age = Month > 1 || (Month === 1 && Day > 2) ? Year - 2009 : Year - 2009 - 1;
-
+const age =
+  Month > 1 || (Month === 1 && Day > 2) ? Year - 2009 : Year - 2009 - 1;
 
 export const metadata = {
+  openGraph: {
+    images: "./opengraph-image.jpg",
+  },
   title: "Fabius Schurig | Portfolio",
   description:
-    "As a " + age + " years old software development intern with a strong understanding of programming and a passion for it, I have expanded my portfolio by developing high-quality applications and successfully solving complex problems.",
+    "As a " +
+    age +
+    " years old software development intern with a strong understanding of programming and a passion for it, I have expanded my portfolio by developing high-quality applications and successfully solving complex problems.",
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en">
       <body className={inter.className}>
@@ -37,7 +46,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           }}
           href="/impressum"
         >
-            <BiLinkExternal style={{ marginTop: "4px" , marginRight: "4px"}}/>
+          <BiLinkExternal style={{ marginTop: "4px", marginRight: "4px" }} />
           Impressum
         </Link>
       </body>
