@@ -32,6 +32,7 @@ export default function page() {
       image: "/chatIO.png",
       height: 260,
       width: 260,
+      link: "https://chat-io-lilac.vercel.app/",
       github: "https://github.com/FleetAdmiralJakob/chat-io",
       warn: "Work in progress",
     },
