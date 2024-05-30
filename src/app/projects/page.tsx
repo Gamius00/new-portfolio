@@ -32,7 +32,7 @@ export default function page() {
       image: "/chatIO.png",
       height: 260,
       width: 260,
-      link: "https://chat-io-lilac.vercel.app/",
+      link: "https://chat-io.roessner.tech/",
       github: "https://github.com/FleetAdmiralJakob/chat-io",
       warn: "Work in progress",
     },
@@ -42,7 +42,7 @@ export default function page() {
       height: 260,
       width: 260,
       warn: "Work in progress",
-      link: "https://fabiusfeuerwehrmann.atlassian.net/wiki/spaces/~71202026dab641e5834bedbb05927f57ee097b/pages/458753/Calendar-App",
+      link: "https://schurig-fabius.atlassian.net/wiki/spaces/~71202017488de92df54daebe5987bd83311286/pages/164172/Calender",
     },
     {
       name: "First Portfolio",
