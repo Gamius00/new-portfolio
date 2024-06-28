@@ -23,8 +23,7 @@ export default function page() {
       height: 260,
       width: 260,
       link: "https://weatherio1.vercel.app/",
-      github:
-        "https://github.com/The-Creative-Programming-Group/Weather-App/tree/frontend-basic",
+      github: "https://github.com/The-Creative-Programming-Group/Weather-App",
       warn: "Work in progress",
     },
     {
