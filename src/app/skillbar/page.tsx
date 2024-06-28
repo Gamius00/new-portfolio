@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import style from "./skillbar.module.css";
 import { DiHtml5 } from "react-icons/di";
 import Link from "next/link";
+import { FaAtlassian } from "react-icons/fa";
 import {
   BiLogoCss3,
   BiLogoJavascript,
@@ -100,6 +101,12 @@ export default function SkillBarPage() {
   ];
 
   const tools: Array[] = [
+    {
+      name: "Atlassian",
+      image: <FaAtlassian className={style.icon} />,
+      hover: "#034EC6",
+      level: 4,
+    },
     {
       name: "VS Code",
       image: <TbBrandVscode className={style.icon} />,

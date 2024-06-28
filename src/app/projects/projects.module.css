@@ -55,9 +55,8 @@
 .buttonTry {
   margin-bottom: 20px;
   background-color: #a81a1a;
-  padding: 6px;
-  padding-left: 32px;
-  padding-right: 33px;
+  padding: 7px;
+  width: 88px;
   border-radius: 5px;
   box-shadow: 0 0 1px #ff0000, 0 0 1px #e40000, 0 0 2px #ff0000, 0 0 3px #f50808,
     0 0 4px #ffd3d3, 0 0 6px white;
@@ -68,6 +67,24 @@
   transform: scale(1.05);
   box-shadow: 0 0 2px #ffa8a8, 0 0 3px #e40000, 0 0 4px #ff0000, 0 0 5px #ff6868,
     0 0 6px #ffabab, 0 0 7px white;
+}
+
+.programmingLanguagesElement {
+  height: 20px;
+  width: 20px;
+  margin-right: 5px;
+}
+
+.programmingLanguages {
+  background-color: #19191F;
+  display: flex;
+  margin-top: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 5px;
+  margin-right: 8px;
 }
 
 .github {
@@ -85,6 +102,18 @@
   background-color: #26272c;
   box-shadow: 0 0 1px #303030, 0 0 1px rgb(66, 66, 66), 0 0 2px #7c7c7c,
     0 0 3px #9b9b9b, 0 0 4px #ffd3d3, 0 0 6px white;
+  width: 88px;
+  border-radius: 5px;
+  padding: 7px;
+  display: flex;
+  margin-bottom: 20px;
+  transition: 0.3s;
+}
+
+.infoButton {
+  background-color: #26272c;
+  box-shadow: 0 0 1px #303030, 0 0 1px rgb(66, 66, 66), 0 0 2px #7c7c7c,
+  0 0 3px #9b9b9b, 0 0 4px #ffd3d3, 0 0 6px white;
   width: 88px;
   border-radius: 5px;
   padding: 7px;
