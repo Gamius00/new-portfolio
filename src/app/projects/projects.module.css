@@ -122,6 +122,13 @@
   transition: 0.3s;
 }
 
+.infoButton:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 2px #303030, 0 0 3px rgb(66, 66, 66), 0 0 4px #7c7c7c,
+        0 0 5px #9b9b9b, 0 0 7px #ffd3d3, 0 0 8px white;
+
+}
+
 .githubButton:hover {
   transform: scale(1.05);
   box-shadow: 0 0 2px #303030, 0 0 3px rgb(66, 66, 66), 0 0 4px #7c7c7c,
