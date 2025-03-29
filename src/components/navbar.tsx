@@ -8,6 +8,8 @@ import { AiFillHome, AiOutlineGithub } from "react-icons/ai";
 import { BsDiscord, BsFillPersonFill, BsLinkedin } from "react-icons/bs";
 import { HiFolderOpen, HiMail, HiMenuAlt3 } from "react-icons/hi";
 import { ImCross } from "react-icons/im";
+import { GoHomeFill } from "react-icons/go";
+import { HiBuildingOffice } from "react-icons/hi2";
 
 export default function Navbar() {
   interface ArrayInterface {
@@ -24,15 +26,16 @@ export default function Navbar() {
       if (!navBarclicked) {
         Items.style.height = "0px";
       } else {
-        Items.style.height = "264px";
+        Items.style.height = "327px";
       }
     }
   });
 
   const pages: ArrayInterface[] = [
-    { title: "Home", icon: <AiFillHome />, link: "/" },
+    { title: "Home", icon: <GoHomeFill />, link: "/" },
     { title: "Projects", icon: <HiFolderOpen />, link: "/projects" },
     { title: "Skills", icon: <BsFillPersonFill />, link: "/skillbar" },
+    { title: "Career", icon: <HiBuildingOffice />, link: "/career" },
     { title: "Contact", icon: <HiMail />, link: "/contact" },
   ];
 
@@ -49,49 +52,31 @@ export default function Navbar() {
       <div className={style.navbar}>
         <Link className={style.navelement} href="/">
           <div>
-            <Image
-              src="/home1.png"
-              alt="..."
-              width={30}
-              height={7}
-              className={style.img}
-            />{" "}
+            <GoHomeFill className={style.icon} />
             <p>Home</p>
           </div>
         </Link>
         <Link className={style.navelement} href="/projects">
           <div>
-            <Image
-              alt="..."
-              src="/edit.png"
-              width={30}
-              height={7}
-              className={style.img}
-            />{" "}
+            <HiFolderOpen className={style.icon} />
             <p>Projects</p>
           </div>
         </Link>
         <Link className={style.navelement} href="/skillbar">
           <div>
-            <Image
-              src="/user1.png"
-              alt="..."
-              width={30}
-              height={7}
-              className={style.img}
-            />{" "}
+            <BsFillPersonFill className={style.icon} />
             <p>Skills</p>
+          </div>
+        </Link>
+        <Link className={style.navelement} href="/career">
+          <div>
+            <HiBuildingOffice className={style.icon} />
+            <p>Career</p>
           </div>
         </Link>
         <Link className={style.navelement} href="/contact">
           <div>
-            <Image
-              src="/contact1.png"
-              alt="..."
-              width={30}
-              height={7}
-              className={style.img}
-            />{" "}
+            <HiMail className={style.icon} />
             <p>Contact</p>
           </div>
         </Link>

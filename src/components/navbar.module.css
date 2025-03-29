@@ -2,6 +2,10 @@
   background-color: #19191f;
 }
 
+.icon {
+  margin-top: 5px;
+}
+
 .navbar a {
   margin-right: 50px;
   font-size: 1.2em;
@@ -189,7 +193,7 @@
   width: 110px;
 }
 
-@media screen and (max-width: 1020px) {
+@media screen and (max-width: 1199px) {
   .navbar {
     display: none;
   }
@@ -200,7 +204,7 @@
   }
 }
 
-@media screen and (min-width: 1021px) {
+@media screen and (min-width: 1200px) {
   .OverLay {
     display: none;
   }
