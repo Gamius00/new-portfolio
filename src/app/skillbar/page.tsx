@@ -491,65 +491,9 @@ export default function SkillBarPage() {
       </div>
       <div
         style={{
-          display: "flex",
-          justifyContent: "center",
-          minHeight: "33vh",
           marginTop: "50px",
         }}
-      >
-        <div style={{ display: "block" }}>
-          <div
-            className={style.Text}
-            style={{ display: "block", marginBottom: "50px" }}
-          >
-            <div style={{ display: "flex", justifyContent: "center" }}>
-              <h1 style={{ fontSize: "27px" }}>Experience</h1>
-            </div>
-            {experience.map((object, index) => (
-              <div key={index} className={style.Experience}>
-                <Image
-                  style={{ borderRadius: "20px" }}
-                  src={object.image}
-                  width={36}
-                  height={36}
-                  alt={"Test"}
-                ></Image>
-                <p>{object.name}</p>
-              </div>
-            ))}
-          </div>
-          <div className={style.Text} style={{ display: "block" }}>
-            <div style={{ display: "flex", justifyContent: "center" }}>
-              <h1 style={{ fontSize: "27px" }}>Programming Career</h1>
-            </div>
-            <p
-              style={{
-                fontSize: "18px",
-                margin: "20px",
-                marginRight: "30px",
-                marginLeft: "30px",
-              }}
-            >
-              Welcome to my Skills page, where I proudly present you my
-              programming skills. <br /> These skill assessments were not
-              arbitrarily selected <br />
-              rather, they have been carefully evaluated by Jakob Rössner,{" "}
-              <br /> an programmer, who accompanied me on my Programmer Career{" "}
-              <br />
-              for several months. You can find Jakob&apos;s portfolio at <br />
-              <Link
-                href="https://www.roessner.tech"
-                style={{ color: "#a81a1a", textDecoration: "underline" }}
-              >
-                https://www.roessner.tech
-              </Link>
-              . While these evaluations offer a valuable <br />
-              orientation, please keep in mind that they serve as a rough gauge
-              of my abilities.
-            </p>
-          </div>
-        </div>
-      </div>
+      ></div>
     </div>
   );
 }
