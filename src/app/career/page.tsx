@@ -44,7 +44,7 @@ const Career = () => {
 
   const careerStep: ArrayInterface[] = [
     {
-      image: "/communardo.jpg",
+      image: "/communardo.png",
       jobtitle: "Apprenticeship for Software Engineering",
       company: "Communardo Software GmbH",
       date: communardoBegin
@@ -67,7 +67,7 @@ const Career = () => {
       ),
     },
     {
-      image: "/communardo.jpg",
+      image: "/communardo.png",
       jobtitle: "Internship for Software Development",
       company: "Communardo Software GmbH",
       date: "23/09/2024 - 27/09/2024 (1 Week)",
@@ -86,7 +86,7 @@ const Career = () => {
       ),
     },
     {
-      image: "/communardo.jpg",
+      image: "/communardo.png",
       jobtitle: "Internship for Software Development",
       company: "Communardo Software GmbH",
       date: "3/11/2023 - 17/11/2023 (2 Weeks)",
