@@ -157,7 +157,10 @@ const Career = () => {
           <li className="mt-1">
             We are a developer group working on a lot of projects. If you want
             to get more informations click{" "}
-            <Link href={""} className="text-red-600">
+            <Link
+              href={"https://creative-programmers.vercel.app/"}
+              className="text-red-600"
+            >
               here
             </Link>
             .
