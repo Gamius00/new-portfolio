@@ -54,7 +54,8 @@ const Career = () => {
   const careerStep: ArrayInterface[] = [
     {
       image: "/communardo.png",
-      jobtitle: "Apprenticeship for Software Engineering",
+      jobtitle:
+        "Apprenticeship for Software Engineering (Fachinformatiker Anwendungsentwicklung)",
       company: "Communardo Software GmbH",
       date: communardoBegin
         ? "Starts 01/08/2025"
