@@ -41,6 +41,15 @@ const Career = () => {
           : " " + (Month - 3) + " Months"
         : Month + 9 + "Months";
   const creativeProgrammersYear = Month >= 3 ? Year - 2023 : Year - 2023 - 1;
+  const DiscordMonth =
+    Month - 1 == 0
+      ? ""
+      : Month > 1
+        ? Month - 1 == 1
+          ? " " + (Month - 1) + " Month"
+          : " " + (Month - 1) + " Months"
+        : Month + 11 + "Months";
+  const DiscordYear = Month >= 1 ? Year - 2023 : Year - 2023 - 1;
 
   const careerStep: ArrayInterface[] = [
     {
@@ -164,6 +173,22 @@ const Career = () => {
               here
             </Link>
             .
+          </li>
+        </div>
+      ),
+    },
+    {
+      image: "/discord-image.png",
+      jobtitle: "Discord Bot Developer",
+      company: "Freelance",
+      date: "01/2023 -  now (" + DiscordYear + " Years" + DiscordMonth + ")",
+      description: (
+        <div>
+          <br />
+          <li>Developed a Discord Bot with Python.</li>
+          <li className="mt-1">
+            The bot is called Creativo and is active on the Creative Programmers
+            server.
           </li>
         </div>
       ),
